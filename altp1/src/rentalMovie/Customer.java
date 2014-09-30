@@ -7,7 +7,7 @@ import java.util.Vector;
 public class Customer {
 
 	private String _name;
-	private Vector _rentals = new Vector();
+	private Vector<Rental> _rentals = new Vector<Rental>();
 
 	public Customer(String name) {
 		_name = name;
@@ -24,7 +24,7 @@ public class Customer {
 	public int getRenterPoints()
 	{
 		int frequentRenterPoints =0;
-		Enumeration rentals = _rentals.elements();
+		Enumeration<Rental> rentals = _rentals.elements();
 
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
@@ -37,22 +37,42 @@ public class Customer {
 
 	public double getTotalPrice(){
 		double totalAmount = 0;
-		int frequentRenterPoints = 0;
-		Enumeration rentals = _rentals.elements();
-		String result = "Rental Record for " + getName() + "\n";
+
+		Enumeration<Rental> rentals = _rentals.elements();
 		while (rentals.hasMoreElements()) {
-			double thisAmount = 0;
 			Rental each = (Rental) rentals.nextElement();
-			//			thisAmount = each.getPrice(each, thisAmount);
+			totalAmount += each.getPrice();
 
-			frequentRenterPoints++;
-			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-					&& (each.getDaysRented() > 1)) {
-				frequentRenterPoints++;
-			}
 		}
-
 		return totalAmount;
+	}
+	/* int frequentRenterPoints = 0;
+	Enumeration rentals = _rentals.elements();
+	String result = "Rental Record for " + getName() + "\n";
+	while (rentals.hasMoreElements()) {
+		double thisAmount = 0;
+		Rental each = (Rental) rentals.nextElement();
+		//			thisAmount = each.getPrice(each, thisAmount);
+
+		frequentRenterPoints++;
+		if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+				&& (each.getDaysRented() > 1)) {
+			frequentRenterPoints++;
+		}
+	}
+	 */
+
+	public int getTotalRenterPoints()
+	{
+		int totalRT = 0;
+
+		Enumeration<Rental> rentals = _rentals.elements();
+		while (rentals.hasMoreElements()) {
+			Rental each = (Rental) rentals.nextElement();
+			totalRT += each.getRenterPoints();
+
+		}
+		return totalRT;
 	}
 
 	public double getPrice(Rental rent, double sum){
@@ -78,16 +98,16 @@ public class Customer {
 
 	public String statement() {
 
-		Enumeration rentals = _rentals.elements();
+		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
-		//		while (rentals.hasMoreElements()) {
-		//			result += "\t" + each.getMovie().getTitle() + "\t"
-		//					+ String.valueOf(thisAmount) + " \n";
-		//			totalAmount += thisAmount;
-		//		}
-		//		result += "Amount owned is " + String.valueOf(totalAmount) + "\n";
-		//		result += "You earned " + String.valueOf(frequentRenterPoints)
-		//				+ " frequent renter points";
+				while (rentals.hasMoreElements()) {
+					Rental each=(Rental) rentals.nextElement();
+					result += "\t" + each.getMovie().getTitle() + "\t"
+							+ String.valueOf(each.getPrice()) + " \n";
+				}
+				result += "Amount owned is " + String.valueOf(this.getTotalPrice()) + "\n";
+				result += "You earned " + String.valueOf(this.getTotalRenterPoints())
+						+ " frequent renter points";
 		return result;
 
 	}
