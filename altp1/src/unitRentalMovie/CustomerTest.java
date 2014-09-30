@@ -5,34 +5,47 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import rentalMovie.Customer;
-
+import rentalMovie.*;
 
 public class CustomerTest {
 
 	private Customer cus;
+	private tp1_original.Customers oldCus;
 	private String name;
 
 	@Before
 	public void setUp() throws Exception {
 		this.name = "Bernard";
-		cus = new Customer(this.name);
+		this.cus = new Customer(this.name);
+		this.oldCus = new tp1_original.Customers(this.name);
 
 	}
 
 	@Test
 	public void testCustomer() {
 		assertNotNull(this.cus);
-		assertEquals(this.cus.getName(), this.name);
 
 	}
 
 	@Test
+	public void testGetName()
+	{
+		assertEquals(this.cus.getName(), this.oldCus.getName());
+	}
+
+	@Test
 	public void testStatement() {
-		String sta = "Rental Record for " + this.name;
-		sta += "\nAmount owned is 0.0\nYou earned 0 frequent renter points";
-		System.out.println(this.cus.statement());
-		assertEquals(this.cus.statement(), sta);
+		for(int i =0; i< 10; i++){
+			assertEquals(this.oldCus.statement(),this.cus.statement());
+			
+			Movie mov = new Movie("petit poney", i%3);
+			tp1_original.Movie movOld = new tp1_original.Movie("petit poney", i%3);
+			Rental ren = new Rental(mov, i);
+			tp1_original.Rental renOld = new tp1_original.Rental(movOld, i);
+			
+			this.cus.addRental(ren);
+			this.oldCus.addRental(renOld);
+		}
 	}
 
 }
