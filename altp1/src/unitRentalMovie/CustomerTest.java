@@ -35,7 +35,7 @@ public class CustomerTest {
 
 	@Test
 	public void testStatement() {
-		for(int i =0; i< 10; i++){
+		for(int i =0; i<= 10; i++){
 			assertEquals(this.oldCus.statement(),this.cus.statement());
 			
 			Movie mov = new Movie("petit poney", i%3);
