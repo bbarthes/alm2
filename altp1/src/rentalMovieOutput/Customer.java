@@ -1,4 +1,4 @@
-package rentalMovie;
+package rentalMovieOutput;
 
 
 import java.util.Enumeration;
@@ -84,17 +84,16 @@ public class Customer {
 
 	public String statement() {
 
-		Enumeration<Rental> rentals = _rentals.elements();
-		String result = "Rental Record for " + getName() + "\n";
-		while (rentals.hasMoreElements()) {
-			Rental each=(Rental) rentals.nextElement();
-			result += "\t" + each.getMovie().getTitle() + "\t"
-					+ String.valueOf(each.getPrice()) + " \n";
+		StatementBuilder sb = new StatementTextBuilder();
+		sb.setTitle(getName());
+		for (Rental rent : _rentals) {
+			sb.addMovie(rent.getMovie().getTitle(), rent.getPrice());
 		}
-		result += "Amount owned is " + String.valueOf(this.getTotalPrice()) + "\n";
-		result += "You earned " + String.valueOf(this.getTotalRenterPoints())
-				+ " frequent renter points";
-		return result;
+		sb.setTotalPrice(getTotalPrice());
+		sb.setTotalRenterPoint(getTotalRenterPoints());
+
+		return sb.getStatement();
+
 
 	}
 }
