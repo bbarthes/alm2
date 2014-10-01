@@ -81,16 +81,20 @@ public class Customer {
 		return sum;
 	}
 
-
-	public String statement() {
-
-		StatementBuilder sb = new StatementTextBuilder();
-		sb.setTitle(getName());
+	public void statement(StatementBuilder st) {
+		st.setTitle(getName());
 		for (Rental rent : _rentals) {
-			sb.addMovie(rent.getMovie().getTitle(), rent.getPrice());
+			st.addMovie(rent.getMovie().getTitle(), rent.getPrice());
 		}
-		sb.setTotalPrice(getTotalPrice());
-		sb.setTotalRenterPoint(getTotalRenterPoints());
+		st.setTotalPrice(getTotalPrice());
+		st.setTotalRenterPoint(getTotalRenterPoints());
+	}
+	
+	public String statement() {
+		
+		StatementTextBuilder sb = new StatementTextBuilder();
+		
+		statement(sb);
 
 		return sb.getStatement();
 
