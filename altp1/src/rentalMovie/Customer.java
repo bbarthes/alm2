@@ -21,20 +21,6 @@ public class Customer {
 		return _name;
 	}
 
-	public int getRenterPoints()
-	{
-		int frequentRenterPoints =0;
-		Enumeration<Rental> rentals = _rentals.elements();
-
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			frequentRenterPoints += each.getRenterPoints();
-		}
-		return frequentRenterPoints;
-	}
-
-
-
 	public double getTotalPrice(){
 		double totalAmount = 0;
 
@@ -60,30 +46,8 @@ public class Customer {
 		return totalRT;
 	}
 
-	public double getPrice(Rental rent, double sum){
-		System.out.println("toto");
-		switch (rent.getMovie().getPriceCode()) {
-		case Movie.REGULAR:
-			sum += 2;
-			if (rent.getDaysRented() > 2) {
-				sum += (rent.getDaysRented() - 2) * 1.5;
-			}
-			break;
-		case Movie.NEW_RELEASE:
-			sum += rent.getDaysRented() * 3;
-			break;
-		case Movie.CHILDREN:
-			sum += 1.5;
-			if (rent.getDaysRented() > 3)
-				sum += (rent.getDaysRented() - 3) * 1.5;
-			break;
-		}
-		return sum;
-	}
-
-
 	public String statement() {
-
+		
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
