@@ -58,7 +58,7 @@ public class StatementHTMLBuilder implements StatementBuilder{
 		html.append(this.price);
 		html.append("</br>You earned ");
 		html.append(this.renterPoint);
-		html.append(" frequent renter points.");
+		html.append(" frequent renter points");
 		html.append("</footer>");
 		html.append("</article>");
 		return html.toString();
