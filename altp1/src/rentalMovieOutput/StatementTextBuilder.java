@@ -5,6 +5,11 @@ public class StatementTextBuilder implements StatementBuilder{
 	
 	private StringBuffer statement;
 	
+	
+	public StatementTextBuilder() {
+		statement = new StringBuffer();
+	}
+
 	@Override
 	public void setTitle(String name) {
 		statement.append("Rental Record for ");
@@ -19,7 +24,7 @@ public class StatementTextBuilder implements StatementBuilder{
 		statement.append(name);
 		statement.append("\t");
 		statement.append(price);
-		statement.append("\n");
+		statement.append(" \n");
 		
 	}
 
@@ -36,11 +41,13 @@ public class StatementTextBuilder implements StatementBuilder{
 	public void setTotalRenterPoint(int points) {
 		statement.append("You earned ");
 		statement.append(points);
-		statement.append(" frequent renter points.");
+		statement.append(" frequent renter points");
 	}
 	
 	public String getStatement(){
-		return statement.toString();
+		String st = statement.toString();
+		//statement = new StringBuffer();
+		return st;
 	}
 	
 	
