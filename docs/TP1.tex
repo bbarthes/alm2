@@ -44,7 +44,7 @@ Cette application permet le calcul et l'affichage des factures de clients d'un v
 \end{figure}
 
 \subsection*{3.}
-Le principal problème de ce code vient de la méthode statement de la classe Customers, qui fait trop de choses et n'a pas un but précis. Alors qu'elle ne devrait uniquement être responsable de l'affichage, elle calcule également le coût de la location et du total de points de fidélité gagné par le client.\\ A côté de cela, on peut noter le manque d'indentations, de séparation entre les méthodes ainsi que des erreurs de typographie (CHILDRENS au lieu de CHILDREN). La classe Customers   représente un client et ne devrait donc pas être au pluriel.
+Le principal problème de ce code vient de la méthode statement de la classe Customers, qui fait trop de choses et n'a pas un but précis. Alors qu'elle ne devrait uniquement être responsable de l'affichage, elle calcule également le coût de la location et du total de points de fidélité gagné par le client.\\ A côté de cela, on peut noter le manque d'indentations, de séparation entre les méthodes ainsi que des erreurs de typographie (CHILDRENS au lieu de CHILDREN). La classe Customers représente un client et ne devrait donc pas être au pluriel. On a également ajouté une classe enum pour les catégories de films.
 
 \section*{Exercice 3}
 
@@ -52,14 +52,24 @@ Dans l'organisation de notre code nous avons créé trois packages, le premier a
 
 \section*{Exercice 4}
 
-Nous avons donc éclaté progressivement la classe statement en cinq méthodes. Dans un premier temps, nous avons extrait la gestion du prix de la location ainsi que la gestion des points de fidélité. Ce que nous avons noté par la suite est que la responsabilité du calcul du prix d'un film ainsi que des points de fidélités ne revenait pas au client. Tout ce dont on a besoin c'est du film et du nombre de jours de la location, or ces deux informations sont disponibles dans la classe Rental. Nous avons donc extrait le calcul de la location d'un film et l'avons déplacé dans la classe Rental, de même pour le calcul des points de fidélité d'un film.
+Nous avons donc éclaté progressivement la méthode statement en cinq méthodes. Dans un premier temps, nous avons extrait la gestion du prix de la location ainsi que la gestion des points de fidélité. Ce que nous avons noté par la suite est que la responsabilité du calcul du prix d'un film ainsi que des points de fidélités ne revenait pas au client. Tout ce dont on a besoin c'est du film et du nombre de jours de la location, or ces deux informations sont disponibles dans la classe Rental. Nous avons donc extrait le calcul de la location d'un film et l'avons déplacé dans la classe Rental, de même pour le calcul des points de fidélité d'un film.
 
 
 \section*{Exercice 5}
 
+\begin{figure}[!ht]
+    \center
+    \includegraphics[width = \textwidth]{imgs/Diagramme2.png}
+    \caption{Diagramme UML après premier refactoring}
+\end{figure}
 
 \section*{Exercice 6}
+
+La demande du client est de pouvoir obtenir des factures sous format html et possiblement par la suite sous d'autres formats. Pour des raisons de compatibilité on garde le comportement de la méthode statement sans paramètre qui retournera la facture sous format texte comme sur l'ancienne version. On a cré une méthode statement prenant un objet StatementBuilder en paramètre. On a une interface StatementBuilder qui permet le formatage d'un intitulé de facture au nom du client, d'un film, du total de la location et du total des points de fidélité gagnés. Deux classes implémentent cette interface, StatementHTMLBuilder et StatementTextBuilder.
+ 
 \section*{Exercice 7}
 
+Le problème actuel vient du manque de flexibilité au niveau du calcul de la location d'un film ainsi que des points de fidélités. En effet, pour l'ajout d'une nouvelle catégorie, on doit modifier le PriceCode, l'implémentation de Rental (méthodes de calculs de prix et de points de fidélité). Chaque catégorie de film utilisant le même algorithme de calcul, la modification ou l'ajout de nouveaux algorithmes est contraignant et peut entrainer une surcharge de code de la classe Rental.\\
+On a donc créé une interface Price, pour factoriser le code on a introduit une classe abstraite AbstractPrice implémentant cette interface et enfin une classe fille pour chaque catégorie de film qui hérite de cette classe abstraite. La classe Rental un nouvel attribut de type Price et les méthodes getPrice et getRentalPoints appelleront les méthodes getPrice et getRenterPoints de la classe correspondant à la catégorie du film.
 
 \end{document} 
