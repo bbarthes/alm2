@@ -65,8 +65,4 @@ public class Rental {
 		return frequentRenterPoints;
 	}
 
-	public String toString()
-	{
-		return "\t" + _movie.getTitle() + "\t"+ String.valueOf(this.getPrice()) ;
-	}
 }

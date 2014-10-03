@@ -1,7 +1,6 @@
 package rentalMovieOutput;
 
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 public class Customer {
@@ -21,41 +20,21 @@ public class Customer {
 		return _name;
 	}
 
-	public int getRenterPoints()
-	{
-		int frequentRenterPoints =0;
-		Enumeration<Rental> rentals = _rentals.elements();
-
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			frequentRenterPoints += each.getRenterPoints();
-		}
-		return frequentRenterPoints;
-	}
-
 	public double getTotalPrice(){
-		double totalAmount = 0;
-
-		Enumeration<Rental> rentals = _rentals.elements();
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			totalAmount += each.getPrice();
-
+		double total = 0;
+		for (Rental rent : _rentals) {
+			total += rent.getPrice(); 
 		}
-		return totalAmount;
+		return total;
 	}
 
 	public int getTotalRenterPoints()
 	{
-		int totalRT = 0;
-
-		Enumeration<Rental> rentals = _rentals.elements();
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
-			totalRT += each.getRenterPoints();
-
+		int total = 0;
+		for (Rental rent : _rentals) {
+			total += rent.getRenterPoints();
 		}
-		return totalRT;
+		return total;
 	}
 
 	public void statement(StatementBuilder st) {
