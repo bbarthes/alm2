@@ -1,20 +1,9 @@
 package rentalMoviePricing;
 
-public class ChildrenPrice implements Price{
+public class ChildrenPrice extends StandarPrice{
 
-	@Override
-	public double getPrice(int daysRented) {
-		double result = 1.5;
-		if(daysRented > 3)
-		    result += (daysRented-3) * 1.5;
-		return result;
+	public ChildrenPrice() {
+		super(1.5, 1.5, 3);
 	}
-
-	@Override
-	public int getRenterPoints(int daysRented) {
-		return 1;
-	}
-	
-	
 
 }
