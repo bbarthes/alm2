@@ -38,8 +38,8 @@ public class CustomerTest {
 		for(int i =0; i<= 10; i++){
 			assertEquals(this.oldCus.statement(),this.cus.statement());
 			
-			Movie mov = new Movie("petit poney", i%3);
-			tp1_original.Movie movOld = new tp1_original.Movie("petit poney", i%3);
+			Movie mov = new Movie("petit poney", PriceCode.CHILDREN);
+			tp1_original.Movie movOld = new tp1_original.Movie("petit poney", 2);
 			Rental ren = new Rental(mov, i);
 			tp1_original.Rental renOld = new tp1_original.Rental(movOld, i);
 			

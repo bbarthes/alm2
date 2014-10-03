@@ -20,7 +20,7 @@ public class CustomerTest2 {
 
 	@Before
 	public void setUp() throws Exception {
-		m = new Movie("StarWars", 0);
+		m = new Movie("StarWars", PriceCode.REGULAR);
 		r = new Rental(m, 2);
 		c = new Customer("Jean");
 		c.addRental(r);

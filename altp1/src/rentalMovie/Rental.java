@@ -36,17 +36,17 @@ public class Rental {
 		double priceloc = 0.0, penalty =0.0,  bordertime =0.0;
 
 		switch (_movie.getPriceCode()) {
-		case Movie.REGULAR:
+		case REGULAR:
 			priceloc =2;
 			penalty =1.5;
 			bordertime =  2;
 			break;
-		case Movie.NEW_RELEASE:
+		case NEW_RELEASE:
 			priceloc =0;
 			penalty =3;
 			bordertime=0;
 			break;
-		case Movie.CHILDREN:
+		case CHILDREN:
 			priceloc =1.5;
 			penalty =1.5;
 			bordertime = 3;
@@ -59,7 +59,7 @@ public class Rental {
 	public int getRenterPoints()
 	{
 		int frequentRenterPoints =1;
-		if ((_movie.getPriceCode() == Movie.NEW_RELEASE) && (_daysRented > 1)) {
+		if ((_movie.getPriceCode() == PriceCode.NEW_RELEASE) && (_daysRented > 1)) {
 			frequentRenterPoints++;
 		}
 		return frequentRenterPoints;
