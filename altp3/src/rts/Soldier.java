@@ -19,7 +19,12 @@ public abstract class Soldier implements SoldierComponent{
 	public int getHealthPoints(){
 		return this.health;
 	}
-	
+	protected void damage( int damage){
+		
+			this.health -= damage;
+			if(this.health < 0)
+				this.health =0;
+	}
 	protected void setHealthPoints(int health){
 		this.health = health;
 	}

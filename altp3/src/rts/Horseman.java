@@ -9,13 +9,13 @@ public class Horseman extends Soldier{
 
 	@Override
 	public int strike() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return this.getStrength();
 	}
 
 	@Override
 	public void parry(int strengthEnnemy) {
-		// TODO Auto-generated method stub
+		this.damage(strengthEnnemy*2);
 		
 	}
 
