@@ -3,6 +3,10 @@ package rts;
 public class Infantryman extends Soldier{
 
 
+	public Infantryman() {
+		super(50, 50);
+	}
+
 	@Override
 	public int strike() {
 		// TODO Auto-generated method stub

@@ -2,9 +2,15 @@ package rts;
 
 public abstract class Soldier implements SoldierComponent{
 	
-	int health;
-	int strength;
+	private int health;
+	private int strength;
 	
+	
+	public Soldier(int health, int strength) {
+		this.health = health;
+		this.strength = strength;
+	}
+
 	public abstract int strike();
 	
 	public abstract void parry(int strengthEnnemy);
@@ -14,15 +20,15 @@ public abstract class Soldier implements SoldierComponent{
 		return this.health;
 	}
 	
-	public void setHealthPoints(int health){
+	protected void setHealthPoints(int health){
 		this.health = health;
 	}
 	
-	public int getStrength(){
+	protected int getStrength(){
 		return this.strength;
 	}
 	
-	public void setStregth(int strength){
+	protected void setStregth(int strength){
 		this.strength = strength;
 	}
 }
