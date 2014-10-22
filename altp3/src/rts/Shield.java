@@ -2,29 +2,14 @@ package rts;
 
 public class Shield extends Equipment {
 
-	/**
-	 * 
-	 */
-	public Shield(SoldierComponent next) {
-		super(next, 100);
-	}
-
-	@Override
-	public int strike() {
-
-		return this.next.strike();
+	public Shield(SoldierComponent deco) {
+		super(deco, 100);
 	}
 
 	@Override
 	public void parry(int strengthEnnemy) {
-		this.next.parry(this.reduceDamage(health, strengthEnnemy));
+		super.parry(this.reduceDamage(strength, strengthEnnemy));
 
-	}
-
-	@Override
-	public int getHealthPoints() {
-
-		return health;
 	}
 
 }

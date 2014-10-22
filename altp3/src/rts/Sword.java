@@ -23,7 +23,7 @@ public class Sword extends Equipment {
 	 */
 	@Override
 	public int strike() {
-		return super.next.strike()+health;
+		return super.strike()+super.strength;
 	}
 
 	/* (non-Javadoc)
@@ -36,7 +36,7 @@ public class Sword extends Equipment {
 			strengthEnnemy = 0;
 		}
 		
-		super.next.parry(strengthEnnemy);
+		super.parry(strengthEnnemy);
 
 	}
 

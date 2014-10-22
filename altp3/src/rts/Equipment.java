@@ -2,27 +2,15 @@ package rts;
 
 import java.util.Random;
 
-public abstract class Equipment implements SoldierComponent {
+public abstract class Equipment extends Decorator{
 
-	SoldierComponent next;
-	int health;
+	int strength;
 	Random rand;
 
-	public Equipment(SoldierComponent next, int health) {
-		this.next = next;
-		this.health = health;
+	public Equipment(SoldierComponent deco, int health) {
+		super(deco);
+		this.strength = health;
 		this.rand = new Random();
-	}
-
-	@Override
-	public int strike() {
-		return this.strike();
-	}
-
-	@Override
-	public void parry(int strengthEnnemy) {
-		this.next.parry(strengthEnnemy);
-
 	}
 
 	protected int reduceDamage(int reduce , int damage){
@@ -33,10 +21,4 @@ public abstract class Equipment implements SoldierComponent {
 
 		return res;
 	}
-
-	@Override
-	public int getHealthPoints() {
-		return this.health;
-	}
-
 }
