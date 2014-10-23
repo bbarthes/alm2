@@ -45,18 +45,17 @@ public class Programme {
 		return this.soldatAtk.getValue().getHealthPoints() <= 0 || this.soldatDef.getValue().getHealthPoints() <= 0;
 	}
 	
-	int main (){
-
+	
+	public static void main(String[] args) {
 		Programme p = new Programme();
-
-		while (endBataille()) {
+	
+		while (!p.endBataille()) {
 			
-			p.bataille();
+			p.raportBataille();
 			p.invertAtkDeff();
 
 		}
 
-		return 0;
 	}
 }
 

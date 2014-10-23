@@ -1,15 +1,12 @@
 package rts;
 
-import java.util.Random;
-
 public abstract class Decorator implements SoldierComponent {
 
 	SoldierComponent deco;
-	int strength;
-	Random rand;
 
-	public Decorator(SoldierComponent next){
-		this.deco = next;
+
+	public Decorator(SoldierComponent deco){
+		this.deco = deco;
 	}
 
 	@Override
