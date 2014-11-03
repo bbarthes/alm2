@@ -25,4 +25,10 @@ public abstract class Decorator implements SoldierComponent {
 		return this.deco.getHealthPoints();
 	}
 
+	@Override
+	public SoldierComponent disarm() {
+		return this.deco.disarm();
+	}
+	
+
 }

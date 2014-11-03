@@ -15,6 +15,11 @@ public abstract class Soldier implements SoldierComponent{
 	
 	public abstract void parry(int strengthEnnemy);
 	
+	public SoldierComponent disarm() {
+		
+		return this;
+	}
+	
 	
 	public int getHealthPoints(){
 		return this.health;
@@ -36,5 +41,6 @@ public abstract class Soldier implements SoldierComponent{
 	protected void setStregth(int strength){
 		this.strength = strength;
 	}
+	
 }
 

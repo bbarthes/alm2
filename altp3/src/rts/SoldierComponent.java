@@ -7,4 +7,6 @@ public interface SoldierComponent {
 	public void parry(int strengthEnnemy);
 	
 	public int getHealthPoints();
+	
+	public SoldierComponent disarm();
 }
