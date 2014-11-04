@@ -8,29 +8,34 @@ public abstract class Equipment extends Decorator{
 	int numberEquipement;
 	Random rand;
 
-	public Equipment(SoldierComponent deco, int health) throws Exception {
+	public Equipment(SoldierComponent deco, int health) throws ErrorHandsFull {
 		super(deco);
-		this.numberEquipement = 1;
-		Class<?> classe = deco.getClass();
 
+		this.rand = new Random();
+		this.numberEquipement = 1;
+
+		Class<?> classe = deco.getClass();
 		for(Class<?> superClass = classe.getSuperclass();superClass != null; superClass = superClass.getSuperclass())
 		{
-			System.out.println(superClass.getName());
+			
 			if(superClass.getName().equals("rts.Equipment"))
 			{
 				Equipment eq = (Equipment)deco;
 				this.numberEquipement = 1+eq.numberEquipement;
+				break;
 			}
 		}
-
 		if(this.numberEquipement >= 3)
 		{
-			throw new Exception("trops d'équiment dans les mains");
+			this.strength = 0;
+			throw new ErrorHandsFull("3");
 		}
-		//System.out.println("toto");
+
+
 		this.strength = health;
-		this.rand = new Random();
+
 	}
+
 
 	protected int getNumberEquipement() {
 		return this.numberEquipement;
