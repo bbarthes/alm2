@@ -10,7 +10,7 @@ public class Programme {
 
 	private Tuple<String ,SoldierComponent> soldatAtk, soldatDef ;
 	
-	public Programme() {
+	public Programme() throws Exception {
 		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new Shield(new Horseman(100,80),60));
 		soldatDef = new Tuple<String, SoldierComponent>("héro",new Shield( new Sword(new Infantryman(),15),70));
 	}
@@ -47,7 +47,7 @@ public class Programme {
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Programme p = new Programme();
 	
 		while (!p.endBataille()) {

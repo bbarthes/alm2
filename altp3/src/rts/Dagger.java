@@ -2,12 +2,12 @@ package rts;
 
 public class Dagger extends Equipment{
 
-	public Dagger(SoldierComponent next) {
+	public Dagger(SoldierComponent next) throws Exception {
 		super(next, 50);		
 		
 	}
 	
-	public Dagger(SoldierComponent next, int stronger) {
+	public Dagger(SoldierComponent next, int stronger) throws Exception {
 		super(next, stronger);		
 		
 	}

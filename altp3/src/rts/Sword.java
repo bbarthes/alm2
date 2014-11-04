@@ -12,11 +12,12 @@ public class Sword extends Equipment {
 	/**
 	 * @param next
 	 * @param health
+	 * @throws Exception 
 	 */
-	public Sword(SoldierComponent deco, int health) {
+	public Sword(SoldierComponent deco, int health) throws Exception {
 		super(deco, health);
 	}
-	public Sword(SoldierComponent deco) {
+	public Sword(SoldierComponent deco) throws Exception {
 		super(deco, 100);
 	}
 
