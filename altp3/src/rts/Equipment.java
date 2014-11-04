@@ -12,18 +12,17 @@ public abstract class Equipment extends Decorator{
 		super(deco);
 		this.numberEquipement = 1;
 		Class<?> classe = deco.getClass();
-		//System.out.println(classe);
+
 		for(Class<?> superClass = classe.getSuperclass();superClass != null; superClass = superClass.getSuperclass())
 		{
 			System.out.println(superClass.getName());
 			if(superClass.getName().equals("rts.Equipment"))
 			{
 				Equipment eq = (Equipment)deco;
-				System.out.println(eq.numberEquipement);
 				this.numberEquipement = 1+eq.numberEquipement;
 			}
 		}
-		System.out.println("toto");
+
 		if(this.numberEquipement >= 3)
 		{
 			throw new Exception("trops d'équiment dans les mains");
