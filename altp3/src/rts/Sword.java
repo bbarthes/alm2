@@ -7,33 +7,28 @@ package rts;
  * @author bbarthes
  *
  */
-public class Sword extends Equipment {
+public class Sword extends WeaponAbstract {
 
-	/**
-	 * @param next
-	 * @param health
-	 * @throws Exception 
-	 */
-	public Sword(SoldierComponent deco, int health) throws Exception {
-		super(deco, health);
+	public Sword(int strengh) {
+		super(strengh, 10);
 	}
-	public Sword(SoldierComponent deco) throws Exception {
-		super(deco, 100);
+	public Sword(int strength, int health) {
+		super(strength, health);
 	}
 
 	@Override
 	public int strike() {
-		return super.strike()+super.strength;
+		return super.strike();
 	}
 
 	@Override
-	public void parry(int strengthEnnemy) {
+	public int parry(int strengthEnnemy) {
 		if(super.rand.nextInt() % 10 == 0)
 		{
 			strengthEnnemy = 0;
 		}
 
-		super.parry(strengthEnnemy);
+		return strengthEnnemy;
 
 	}
 

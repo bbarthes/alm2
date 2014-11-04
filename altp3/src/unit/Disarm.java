@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import rts.Infantryman;
 import rts.SoldierComponent;
+import rts.SoldierWithHands;
 import rts.Sword;
 
 public class Disarm {
@@ -17,7 +18,7 @@ public class Disarm {
 	@Before
 	public void setUp() throws Exception {
 		this.soldier = new Infantryman();
-		this.soldierWithSword = new Sword( new Sword(this.soldier, 60));
+		this.soldierWithSword = new SoldierWithHands ( new SoldierWithHands(this.soldier, new Sword(10, 5)),new Sword(10, 5)) ;
 	}
 		
 	@Test

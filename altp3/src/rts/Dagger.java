@@ -1,20 +1,25 @@
 package rts;
 
-public class Dagger extends Equipment{
+public class Dagger extends WeaponAbstract{
 
-	public Dagger(SoldierComponent next) throws Exception {
-		super(next, 50);		
+	public Dagger() throws Exception {
+		super(50,12);		
 		
 	}
 	
-	public Dagger(SoldierComponent next, int stronger) throws Exception {
-		super(next, stronger);		
+	public Dagger(int strength, int health) throws Exception {
+		super(strength, health);		
 		
 	}
 	
 	@Override
 	public int strike() {
-		return super.strike()+super.strength;
+		return super.strength;
+	}
+
+	@Override
+	public int parry(int strengthEnnemy) {
+		return 0;
 	}
 
 	

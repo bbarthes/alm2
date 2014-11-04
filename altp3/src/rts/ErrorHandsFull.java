@@ -13,5 +13,9 @@ public class ErrorHandsFull extends Exception {
 	public ErrorHandsFull(String message) {
 		super(message);
 	}
+	public  ErrorHandsFull(int val) {
+		super(Integer.toString(val));
+
+	}
 
 }

@@ -2,6 +2,7 @@ package prog;
 
 import rts.Infantryman;
 import rts.SoldierComponent;
+import rts.SoldierWithHands;
 import rts.Sword;
 
 public class ExempleTropDArme {
@@ -19,7 +20,7 @@ public class ExempleTropDArme {
 
 			try {
 				System.out.println("Décoration de l'Infantryman  avec une nouvelle arme.");
-				s1 = new Sword(s1);
+				s1 = new SoldierWithHands(s1, new Sword(12,12));
 			} catch (Exception e) {
 				System.out.println("Erreur: Limite du nombre de décoration atteinte.");
 				continu = false;
@@ -36,7 +37,7 @@ public class ExempleTropDArme {
 		{
 			try {
 				System.out.print("Décoration de l'Infantryman  avec une nouvelle arme.");
-				s1 = new Sword(s1);
+				s1 = new SoldierWithHands(s1, new Sword(12,12));
 				System.out.println(" "+(i+1) +" décoration d'armes ajoutée.");
 			} catch (Exception e) {
 				System.out.println("Erreur: Limite du nombre de décoration atteinte.");			

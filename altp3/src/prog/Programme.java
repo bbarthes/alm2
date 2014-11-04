@@ -4,6 +4,7 @@ import rts.Horseman;
 import rts.Infantryman;
 import rts.Shield;
 import rts.SoldierComponent;
+import rts.SoldierWithHands;
 import rts.Sword;
 
 public class Programme {
@@ -11,8 +12,8 @@ public class Programme {
 	private Tuple<String ,SoldierComponent> soldatAtk, soldatDef ;
 	
 	public Programme() throws Exception {
-		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new Shield(new Horseman(100,80),60));
-		soldatDef = new Tuple<String, SoldierComponent>("héro",new Shield( new Sword(new Infantryman(),15),70));
+		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new SoldierWithHands(new Horseman(100,80),new Sword(10, 10)));
+		soldatDef = new Tuple<String, SoldierComponent>("héro",new SoldierWithHands(new Infantryman(), new Sword(30,10)));
 	}
 	
 	

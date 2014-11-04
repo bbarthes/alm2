@@ -15,7 +15,8 @@ public class Strike {
 	@Before
 	public void setUp() throws Exception {
 		this.soldier = new Infantryman();
-		this.soldierWithSword = new Sword(new Infantryman(), 60);
+
+		this.soldierWithSword = new SoldierWithHands(new Infantryman(), new Sword(60, 5));
 	}
 	
 	@Test

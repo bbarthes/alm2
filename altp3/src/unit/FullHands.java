@@ -1,11 +1,13 @@
 package unit;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import rts.Infantryman;
 import rts.SoldierComponent;
+import rts.SoldierWithHands;
 import rts.Sword;
 
 public class FullHands {
@@ -22,16 +24,17 @@ public class FullHands {
 	{
 		boolean continu = true;
 		int i =0;
+		
 		while(continu)
 		{
 
 			try {
-				this.soldierWithSword = new Sword(this.soldierWithSword);
+				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
 				i++;
 			} catch (Exception e) {
 				continu = false;
 			}
-		}
+		}//*/
 		assertEquals(i, 2);
 	}
 
@@ -40,7 +43,7 @@ public class FullHands {
 		for(int i =0 ; i <5 ; ++i)
 		{
 			try {
-				this.soldierWithSword = new Sword(this.soldierWithSword);
+				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
 			} catch (Exception e) { /*rien*/ }
 		}
 
