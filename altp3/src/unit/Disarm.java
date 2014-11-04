@@ -17,14 +17,15 @@ public class Disarm {
 	@Before
 	public void setUp() throws Exception {
 		this.soldier = new Infantryman();
-		this.soldierWithSword = new Sword(this.soldier, 60);
+		this.soldierWithSword = new Sword( new Sword(this.soldier, 60));
 	}
-	
 		
 	@Test
 	public void testDisarm() {
 		assertNotEquals(soldier, soldierWithSword);
 		SoldierComponent soldierWithOutSword = soldierWithSword.disarm();
+		assertNotEquals(soldier, soldierWithOutSword);
+		soldierWithOutSword = soldierWithOutSword.disarm();
 		assertEquals(soldier, soldierWithOutSword);
 	}
 

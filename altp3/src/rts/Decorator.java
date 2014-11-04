@@ -27,7 +27,7 @@ public abstract class Decorator implements SoldierComponent {
 
 	@Override
 	public SoldierComponent disarm() {
-		return this.deco.disarm();
+		return this.deco;
 	}
 	
 
