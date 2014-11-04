@@ -27,7 +27,7 @@ public class SoldierWithHands extends Decorator {
 
 	/*	public void addWeapon(Weapon weapon ) throws ErrorHandsFull
 	{
-		if (this.weapons.capacity() < numberHands)
+		if ( < numberHands)
 		{
 			this.weapons.add(weapon);
 		}
@@ -48,8 +48,10 @@ public class SoldierWithHands extends Decorator {
 
 		int strike = 0;
 
-		for(Weapon weapon : this.weapons)
+		//for(Weapon weapon : this.weapons)
+		if(!this.weapons.isEmpty())
 		{
+			Weapon weapon = this.weapons.firstElement();
 			strike =+ weapon.strike();
 			this.usure(weapon,1);
 		}
@@ -59,8 +61,10 @@ public class SoldierWithHands extends Decorator {
 	@Override
 	public void parry(int strengthEnnemy) {
 
-		for(Weapon weapon : this.weapons)
+		//for(Weapon weapon : this.weapons)
+		if(!this.weapons.isEmpty())
 		{
+			Weapon weapon = this.weapons.firstElement();
 			strengthEnnemy = weapon.parry(strengthEnnemy);
 			this.usure(weapon,1);
 		}

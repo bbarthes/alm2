@@ -12,8 +12,8 @@ public class Programme {
 	private Tuple<String ,SoldierComponent> soldatAtk, soldatDef ;
 	
 	public Programme() throws Exception {
-		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new SoldierWithHands(new Horseman(100,80),new Sword(10, 10)));
-		soldatDef = new Tuple<String, SoldierComponent>("héro",new SoldierWithHands(new Infantryman(), new Sword(30,10)));
+		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new SoldierWithHands(new SoldierWithHands(new Horseman(100,80) ,new Shield(90)),new Sword(10, 10)));
+		soldatDef = new Tuple<String, SoldierComponent>("héro",new SoldierWithHands(new SoldierWithHands(new Infantryman() ,new Shield(90)), new Sword(30,10)));
 	}
 	
 	
