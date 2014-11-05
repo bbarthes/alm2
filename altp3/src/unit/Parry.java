@@ -9,7 +9,7 @@ import rts.Infantryman;
 import rts.Shield;
 import rts.SoldierComponent;
 import rts.SoldierWithHands;
-import rts.Sword;
+
 
 public class Parry {
 
