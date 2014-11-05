@@ -1,6 +1,6 @@
 package rts.weapon;
 
-public interface Weapon {
+public interface Weapon extends Cloneable {
 
 	public int strike();
 
@@ -9,5 +9,7 @@ public interface Weapon {
 	public int getHealthPoints();
 
 	void damage(int dammage);
+
+	public Object clone();
 
 }

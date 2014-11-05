@@ -1,11 +1,12 @@
 package rts.facade;
 
 import rts.ISoldier;
+import rts.exception.ErrorHandsFull;
 import rts.weapon.Weapon;
 
 public interface SoldierFacade extends ISoldier {
 	
-	public void addWeapon(Class<Weapon> weapon);
+	void addWeapon(Weapon weapon) throws ErrorHandsFull;
 
 
 }

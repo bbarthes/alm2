@@ -3,12 +3,12 @@ package rts.weapon;
 
 public class Dagger extends WeaponAbstract{
 
-	public Dagger() throws Exception {
+	public Dagger() {
 		super(50,12);		
 		
 	}
 	
-	public Dagger(int strength, int health) throws Exception {
+	public Dagger(int strength, int health){
 		super(strength, health);		
 		
 	}

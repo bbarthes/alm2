@@ -6,10 +6,10 @@ public class Shield extends WeaponAbstract {
 	public Shield() {
 		super(100,15);
 	}
-	public Shield(int strength) throws Exception {
+	public Shield(int strength) {
 		super( strength,15);
 	}
-	public Shield(int strength, int healt) throws Exception {
+	public Shield(int strength, int healt) {
 		super( strength,healt);
 	}
 
