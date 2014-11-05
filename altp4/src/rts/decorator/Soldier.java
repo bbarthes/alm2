@@ -43,5 +43,11 @@ public abstract class Soldier implements SoldierComponent{
 		this.strength = strength;
 	}
 	
+	@Override
+	public SoldierComponent clearDeco() {
+		
+		return this;
+	}
+	
 }
 
