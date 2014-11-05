@@ -1,12 +1,8 @@
 package rts.decorator;
 
-public interface SoldierComponent {
+import rts.ISoldier;
 
-	public int strike();
-	
-	public void parry(int strengthEnnemy);
-	
-	public int getHealthPoints();
-	
+public interface SoldierComponent extends ISoldier{
+
 	public SoldierComponent disarm();
 }
