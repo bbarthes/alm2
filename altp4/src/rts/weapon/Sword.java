@@ -1,7 +1,8 @@
 /**
  * 
  */
-package rts;
+package rts.weapon;
+
 
 /**
  * @author bbarthes

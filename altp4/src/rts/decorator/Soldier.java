@@ -1,4 +1,5 @@
-package rts;
+package rts.decorator;
+
 
 public abstract class Soldier implements SoldierComponent{
 	

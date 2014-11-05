@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.Infantryman;
-import rts.Shield;
-import rts.SoldierComponent;
-import rts.SoldierWithHands;
+import rts.decorator.Infantryman;
+import rts.decorator.SoldierComponent;
+import rts.decorator.SoldierWithHands;
+import rts.weapon.Shield;
 
 
 public class Parry {

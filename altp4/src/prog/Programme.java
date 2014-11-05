@@ -1,11 +1,11 @@
 package prog;
 
-import rts.Horseman;
-import rts.Infantryman;
-import rts.Shield;
-import rts.SoldierComponent;
-import rts.SoldierWithHands;
-import rts.Sword;
+import rts.decorator.Horseman;
+import rts.decorator.Infantryman;
+import rts.decorator.SoldierComponent;
+import rts.decorator.SoldierWithHands;
+import rts.weapon.Shield;
+import rts.weapon.Sword;
 
 public class Programme {
 

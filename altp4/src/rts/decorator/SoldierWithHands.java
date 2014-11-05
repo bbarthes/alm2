@@ -1,6 +1,9 @@
-package rts;
+package rts.decorator;
 
 import java.util.Vector;
+
+import rts.exception.ErrorHandsFull;
+import rts.weapon.Weapon;
 
 public class SoldierWithHands extends Decorator {
 

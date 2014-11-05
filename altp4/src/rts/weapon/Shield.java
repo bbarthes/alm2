@@ -1,4 +1,5 @@
-package rts;
+package rts.weapon;
+
 
 public class Shield extends WeaponAbstract {
 

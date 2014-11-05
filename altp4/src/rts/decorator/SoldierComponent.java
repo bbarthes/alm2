@@ -1,4 +1,4 @@
-package rts;
+package rts.decorator;
 
 public interface SoldierComponent {
 

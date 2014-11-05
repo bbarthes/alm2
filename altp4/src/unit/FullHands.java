@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.Infantryman;
-import rts.SoldierComponent;
-import rts.SoldierWithHands;
-import rts.Sword;
+import rts.decorator.Infantryman;
+import rts.decorator.SoldierComponent;
+import rts.decorator.SoldierWithHands;
+import rts.weapon.Sword;
 
 public class FullHands {
 

@@ -1,4 +1,4 @@
-package rts;
+package rts.exception;
 
 public class ErrorHandsFull extends Exception {
 
