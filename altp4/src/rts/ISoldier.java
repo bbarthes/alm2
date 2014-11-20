@@ -1,5 +1,7 @@
 package rts;
 
+import rts.composite.Visitor;
+
 
 public interface ISoldier {
 
@@ -8,5 +10,7 @@ public interface ISoldier {
 	public void parry(int strengthEnnemy);
 	
 	public int getHealthPoints();
+	
+	
 	
 }

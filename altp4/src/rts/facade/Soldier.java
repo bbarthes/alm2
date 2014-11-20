@@ -7,10 +7,11 @@ import rts.weapon.Weapon;
 
 
 
-public class Soldier implements SoldierFacade {
+public abstract class Soldier implements SoldierFacade {
 
 	SoldierComponent soldier;
 	int  weapons;
+	
 	//todo repasser au vector 
 	public Soldier() {
 		this.weapons = 0;
@@ -32,7 +33,6 @@ public class Soldier implements SoldierFacade {
 	public void parry(int strengthEnnemy) {
 		soldier.parry(strengthEnnemy);;
 		this.clearDeco();
-
 	}
 
 	@Override
@@ -47,7 +47,6 @@ public class Soldier implements SoldierFacade {
 		
 		this.soldier = new SoldierWithHands(this.soldier, (Weapon)weapon.clone());
 		++this.weapons;
-
 	}
 
 }
