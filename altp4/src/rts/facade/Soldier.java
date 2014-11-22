@@ -1,5 +1,7 @@
 package rts.facade;
 
+import java.util.ArrayList;
+import java.util.List;
 import rts.decorator.SoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
@@ -10,16 +12,22 @@ import rts.weapon.Weapon;
 public abstract class Soldier implements SoldierFacade {
 
 	SoldierComponent soldier;
-	int  weapons;
-	
-	//todo repasser au vector 
+	List<SoldierComponent> weapons;
+
 	public Soldier() {
-		this.weapons = 0;
+		this.weapons = new ArrayList<>();
 	}
 
 	protected void clearDeco()
 	{
 		this.soldier = this.soldier.clearDeco();
+		for(SoldierComponent sc : this.weapons)
+		{
+			if(sc.getHealthPoints()<=0)
+			{
+				this.weapons.remove(sc);
+			}
+		}
 	}
 
 	@Override
@@ -42,11 +50,12 @@ public abstract class Soldier implements SoldierFacade {
 
 	@Override
 	public void addWeapon(Weapon weapon) throws ErrorHandsFull {
-		if(this.weapons > 2)
-			throw new ErrorHandsFull(this.weapons);
-		
+		if(this.weapons.size() > 2)
+		{
+			throw new ErrorHandsFull(this.weapons.size());
+		}
 		this.soldier = new SoldierWithHands(this.soldier, (Weapon)weapon.clone());
-		++this.weapons;
+		this.weapons.add(this.soldier);
 	}
 
 }
