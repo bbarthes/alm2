@@ -8,7 +8,7 @@ import org.junit.Test;
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.weapon.Sword;
-import soldier.Infantryman;
+import rts.soldier.Infantryman;
 
 public class Disarm {
 

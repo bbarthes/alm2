@@ -1,4 +1,4 @@
-package soldier;
+package rts.soldier;
 
 
 public class Infantryman extends Soldier{

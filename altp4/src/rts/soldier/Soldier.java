@@ -1,4 +1,4 @@
-package soldier;
+package rts.soldier;
 
 import rts.decorator.ISoldierComponent;
 

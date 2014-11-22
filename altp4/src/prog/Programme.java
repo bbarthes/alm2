@@ -4,8 +4,8 @@ import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.weapon.Shield;
 import rts.weapon.Sword;
-import soldier.Horseman;
-import soldier.Infantryman;
+import rts.soldier.Horseman;
+import rts.soldier.Infantryman;
 
 public class Programme {
 

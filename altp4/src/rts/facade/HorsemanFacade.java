@@ -1,7 +1,7 @@
 package rts.facade;
 
 import rts.composite.Visitor;
-import soldier.Horseman;
+import rts.soldier.Horseman;
 
 public class HorsemanFacade extends SoldierFacade {
 
