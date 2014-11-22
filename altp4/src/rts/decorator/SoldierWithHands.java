@@ -2,7 +2,7 @@ package rts.decorator;
 
 import rts.weapon.Weapon;
 
-public class SoldierWithHands extends Decorator {
+public class SoldierWithHands extends AbstractDecorator {
 
 	private Weapon weapon;
 

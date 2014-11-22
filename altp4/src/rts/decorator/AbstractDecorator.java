@@ -1,12 +1,12 @@
 package rts.decorator;
 
 
-public abstract class Decorator implements SoldierComponent {
+public abstract class AbstractDecorator implements SoldierComponent {
 
 	SoldierComponent deco;
 
 
-	public Decorator(SoldierComponent deco){
+	public AbstractDecorator(SoldierComponent deco){
 		this.deco = deco;
 	}
 
