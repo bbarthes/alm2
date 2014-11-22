@@ -1,6 +1,6 @@
 package rts.weapon;
 
-public interface Weapon extends Cloneable {
+public interface IWeapon extends Cloneable {
 
 	public int strike();
 

@@ -5,17 +5,18 @@ import java.util.List;
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
-import rts.weapon.Weapon;
+import rts.weapon.IWeapon;
 
 
 
-public abstract class SoldierFacade implements ISoldierFacade {
+public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	ISoldierComponent soldier;
 	List<ISoldierComponent> weapons;
 
-	public SoldierFacade() {
+	public AbstractSoldierFacade(ISoldierComponent soldier) {
 		this.weapons = new ArrayList<>();
+		this.soldier = soldier;
 	}
 
 	protected void clearDeco()
@@ -49,12 +50,12 @@ public abstract class SoldierFacade implements ISoldierFacade {
 	}
 
 	@Override
-	public void addWeapon(Weapon weapon) throws ErrorHandsFull {
+	public void addWeapon(IWeapon weapon) throws ErrorHandsFull {
 		if(this.weapons.size() > 2)
 		{
 			throw new ErrorHandsFull(this.weapons.size());
 		}
-		this.soldier = new SoldierWithHands(this.soldier, (Weapon)weapon.clone());
+		this.soldier = new SoldierWithHands(this.soldier, (IWeapon)weapon.clone());
 		this.weapons.add(this.soldier);
 	}
 

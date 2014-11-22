@@ -3,17 +3,13 @@ package rts.facade;
 import rts.composite.Visitor;
 import rts.soldier.Horseman;
 
-public class HorsemanFacade extends SoldierFacade {
-
-	Horseman soldier;
-
+public class HorsemanFacade extends AbstractSoldierFacade {
 	
 	/**
 	 * @param man
 	 */
-	public HorsemanFacade(Horseman soldier) {
-		super();
-		this.soldier = soldier;
+	public HorsemanFacade() {
+		super(new Horseman());
 	}
 
 

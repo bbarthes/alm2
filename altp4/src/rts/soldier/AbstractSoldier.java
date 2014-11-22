@@ -3,13 +3,13 @@ package rts.soldier;
 import rts.decorator.ISoldierComponent;
 
 
-public abstract class Soldier implements ISoldierComponent{
+public abstract class AbstractSoldier implements ISoldierComponent{
 	
 	private int health;
 	private int strength;
 	
 	
-	public Soldier(int health, int strength) {
+	public AbstractSoldier(int health, int strength) {
 		this.health = health;
 		this.strength = strength;
 	}

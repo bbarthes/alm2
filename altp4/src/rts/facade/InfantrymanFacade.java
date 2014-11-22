@@ -3,16 +3,13 @@ package rts.facade;
 import rts.composite.Visitor;
 import rts.soldier.Infantryman;
 
-public class InfantrymanFacade extends SoldierFacade {
-
-	Infantryman soldier;	
+public class InfantrymanFacade extends AbstractSoldierFacade {	
 	
 	/**
 	 * @param soldier
 	 */
-	public InfantrymanFacade(Infantryman soldier) {
-		super();
-		this.soldier = soldier;
+	public InfantrymanFacade() {
+		super(new Infantryman());
 	}
 
 	@Override

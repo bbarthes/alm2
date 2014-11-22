@@ -1,12 +1,12 @@
 package rts.decorator;
 
-import rts.weapon.Weapon;
+import rts.weapon.IWeapon;
 
 public class SoldierWithHands extends AbstractDecorator {
 
-	private Weapon weapon;
+	private IWeapon weapon;
 
-	public SoldierWithHands(ISoldierComponent deco, Weapon weapon) {
+	public SoldierWithHands(ISoldierComponent deco, IWeapon weapon) {
 		super(deco);
 
 		this.weapon = weapon;

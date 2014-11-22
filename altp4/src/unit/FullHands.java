@@ -27,7 +27,7 @@ public class FullHands {
 		
 		while(continu)
 		{
-
+			System.out.println("titi");
 			try {
 				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
 				i++;
@@ -42,6 +42,7 @@ public class FullHands {
 	public void testDisarm() {
 		for(int i =0 ; i <5 ; ++i)
 		{
+		
 			try {
 				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
 			} catch (Exception e) { /*rien*/ }
@@ -52,6 +53,7 @@ public class FullHands {
 
 		while(continu)
 		{
+			System.out.println("toto");
 			ISoldierComponent swap = this.soldierWithSword.disarm();
 			if(swap == this.soldierWithSword)
 				continu = false;

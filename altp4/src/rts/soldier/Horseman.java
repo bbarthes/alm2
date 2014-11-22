@@ -1,7 +1,7 @@
 package rts.soldier;
 
 
-public class Horseman extends Soldier{
+public class Horseman extends AbstractSoldier{
 
 
 	public Horseman (int health, int strength){
