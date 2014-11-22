@@ -1,7 +1,9 @@
-package rts.decorator;
+package soldier;
+
+import rts.decorator.ISoldierComponent;
 
 
-public abstract class Soldier implements SoldierComponent{
+public abstract class Soldier implements ISoldierComponent{
 	
 	private int health;
 	private int strength;
@@ -16,7 +18,7 @@ public abstract class Soldier implements SoldierComponent{
 	
 	public abstract void parry(int strengthEnnemy);
 	
-	public SoldierComponent disarm() {
+	public ISoldierComponent disarm() {
 		
 		return this;
 	}
@@ -44,7 +46,7 @@ public abstract class Soldier implements SoldierComponent{
 	}
 	
 	@Override
-	public SoldierComponent clearDeco() {
+	public ISoldierComponent clearDeco() {
 		
 		return this;
 	}

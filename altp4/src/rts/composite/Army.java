@@ -3,11 +3,11 @@ package rts.composite;
 import java.util.Vector;
 
 import rts.exception.ErrorHandsFull;
-import rts.facade.SoldierFacade;
+import rts.facade.ISoldierFacade;
 import rts.weapon.Weapon;
 
 public class Army implements GroupArmy{
-	Vector<SoldierFacade> army;
+	Vector<ISoldierFacade> army;
 
 	public Army() {
 		this.army = new Vector<>();
@@ -17,7 +17,7 @@ public class Army implements GroupArmy{
 	@Override
 	public int strike() {
 		int strike = 0;
-		for(SoldierFacade soldat : this.army)
+		for(ISoldierFacade soldat : this.army)
 		{
 			strike = soldat.strike();
 		}
@@ -27,7 +27,7 @@ public class Army implements GroupArmy{
 	@Override
 	public void parry(int strengthEnnemy) {
 		int strengthEnnemySoldat =   strengthEnnemy/this.army.capacity();
-		for(SoldierFacade soldat : this.army)
+		for(ISoldierFacade soldat : this.army)
 		{
 			soldat.parry(strengthEnnemySoldat);
 		}
@@ -37,7 +37,7 @@ public class Army implements GroupArmy{
 	@Override
 	public int getHealthPoints() {
 		int healthPoints = 0;
-		for(SoldierFacade soldat : this.army)
+		for(ISoldierFacade soldat : this.army)
 		{
 			healthPoints = soldat.getHealthPoints();
 		}
@@ -47,7 +47,7 @@ public class Army implements GroupArmy{
 	@Override
 	public void addWeapon(Weapon weapon) throws ErrorHandsFull {
 		
-		for(SoldierFacade soldat : this.army)
+		for(ISoldierFacade soldat : this.army)
 		{
 			soldat.addWeapon(weapon);
 		}

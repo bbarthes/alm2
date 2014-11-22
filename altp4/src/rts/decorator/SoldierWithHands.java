@@ -6,7 +6,7 @@ public class SoldierWithHands extends AbstractDecorator {
 
 	private Weapon weapon;
 
-	public SoldierWithHands(SoldierComponent deco, Weapon weapon) {
+	public SoldierWithHands(ISoldierComponent deco, Weapon weapon) {
 		super(deco);
 
 		this.weapon = weapon;

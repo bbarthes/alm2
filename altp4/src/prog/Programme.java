@@ -1,25 +1,25 @@
 package prog;
 
-import rts.decorator.Horseman;
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
+import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.weapon.Shield;
 import rts.weapon.Sword;
+import soldier.Horseman;
+import soldier.Infantryman;
 
 public class Programme {
 
-	private Tuple<String ,SoldierComponent> soldatAtk, soldatDef ;
+	private Tuple<String ,ISoldierComponent> soldatAtk, soldatDef ;
 	
 	public Programme() throws Exception {
-		soldatAtk = new Tuple<String, SoldierComponent>("chevalier", new SoldierWithHands(new SoldierWithHands(new Horseman(100,80) ,new Shield(90)),new Sword(10, 10)));
-		soldatDef = new Tuple<String, SoldierComponent>("héro",new SoldierWithHands(new SoldierWithHands(new Infantryman() ,new Shield(90)), new Sword(30,10)));
+		soldatAtk = new Tuple<String, ISoldierComponent>("chevalier", new SoldierWithHands(new SoldierWithHands(new Horseman(100,80) ,new Shield(90)),new Sword(10, 10)));
+		soldatDef = new Tuple<String, ISoldierComponent>("héro",new SoldierWithHands(new SoldierWithHands(new Infantryman() ,new Shield(90)), new Sword(30,10)));
 	}
 	
 	
 	void invertAtkDeff()
 	{
-		Tuple<String ,SoldierComponent> swap;
+		Tuple<String ,ISoldierComponent> swap;
 		swap = this.soldatAtk;
 		this.soldatAtk = this.soldatDef;
 		this.soldatDef = swap;

@@ -1,8 +1,8 @@
 package rts.composite;
 
-import rts.facade.SoldierFacade;
+import rts.facade.ISoldierFacade;
 
-public interface GroupArmy extends SoldierFacade{
+public interface GroupArmy extends ISoldierFacade{
 
 	
 }
