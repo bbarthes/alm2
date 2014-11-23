@@ -51,7 +51,7 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	@Override
 	public void addWeapon(IWeapon weapon) throws ErrorHandsFull {
-		if(this.weapons.size() > 2)
+		if(this.weapons.size() >= 2)
 		{
 			throw new ErrorHandsFull(this.weapons.size());
 		}
