@@ -20,7 +20,7 @@ public class VisitorArmyCount implements IVisitorArmy{
 		return horseman;
 	}
 
-	public int getNUmInfantryman() {
+	public int getNumInfantryman() {
 		return infantryman;
 	}
 
@@ -35,19 +35,19 @@ public class VisitorArmyCount implements IVisitorArmy{
 	}
 
 	@Override
-	public void visite(Army army) {
+	public void visit(Army army) {
 		++this.army;
 
 	}
 
 	@Override
-	public void visite(HorsemanFacade horsmam) {
+	public void visit(HorsemanFacade horsmam) {
 		++this.horseman;
 
 	}
 
 	@Override
-	public void visite(InfantrymanFacade infantryman) {
+	public void visit(InfantrymanFacade infantryman) {
 		++this.infantryman;
 
 	}
