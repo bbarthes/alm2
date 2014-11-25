@@ -1,7 +1,7 @@
 package rts.facade;
 
-import rts.composite.Visitor;
 import rts.soldier.Infantryman;
+import rts.visitor.IVisitorArmy;
 
 public class InfantrymanFacade extends AbstractSoldierFacade {	
 	
@@ -17,8 +17,8 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+	public void accept(IVisitorArmy v) {
+		v.visite(this);
 		
 	}
 

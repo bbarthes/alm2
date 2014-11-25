@@ -7,6 +7,7 @@ import rts.exception.ErrorHandsFull;
 import rts.facade.HorsemanFacade;
 import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
+import rts.visitor.IVisitorArmy;
 import rts.weapon.IWeapon;
 
 public class Army implements IArmy{
@@ -63,9 +64,12 @@ public class Army implements IArmy{
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
+	public void accept(IVisitorArmy v) {
+		v.visite(this);
+		for(ISoldierFacade soldat : this.army)
+		{
+				soldat.accept(v);	
+		}
 	}
 	// FIXME 
 	

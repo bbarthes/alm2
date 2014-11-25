@@ -1,6 +1,5 @@
 package rts;
 
-import rts.composite.Visitor;
 
 
 public interface ISoldier {
