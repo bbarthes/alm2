@@ -11,6 +11,10 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 	public InfantrymanFacade() {
 		super(new Infantryman());
 	}
+	
+	public InfantrymanFacade(int health, int strength) {
+		super(new Infantryman(health,strength));
+	}
 
 	@Override
 	public void accept(Visitor v) {

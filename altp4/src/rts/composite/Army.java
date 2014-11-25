@@ -22,7 +22,7 @@ public class Army implements IArmy{
 		int strike = 0;
 		for(ISoldierFacade soldat : this.army)
 		{
-			strike = soldat.strike();
+			strike += soldat.strike();
 		}
 		return strike;
 	}
@@ -42,7 +42,7 @@ public class Army implements IArmy{
 		int healthPoints = 0;
 		for(ISoldierFacade soldat : this.army)
 		{
-			healthPoints = soldat.getHealthPoints();
+			healthPoints += soldat.getHealthPoints();
 		}
 		return healthPoints;
 	}

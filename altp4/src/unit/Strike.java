@@ -1,26 +1,28 @@
 package unit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.decorator.ISoldierComponent;
-import rts.decorator.SoldierWithHands;
+import rts.facade.ISoldierFacade;
+import rts.facade.InfantrymanFacade;
 import rts.weapon.Sword;
-import rts.soldier.Infantryman;
 
 public class Strike {
 	
-	private ISoldierComponent soldier;
-	private ISoldierComponent soldierWithSword;
+	private ISoldierFacade soldier;
+	private ISoldierFacade soldierWithSword;
 
 	@Before
 	public void setUp() throws Exception {
-		this.soldier = new Infantryman();
+		this.soldier = new InfantrymanFacade();
 
-		this.soldierWithSword = new SoldierWithHands(new Infantryman(), new Sword(60, 5));
+		this.soldierWithSword = new InfantrymanFacade();
+		this.soldierWithSword.addWeapon( new Sword(60, 5));
 	}
+
 	
 	@Test
 	public void testSoldier() {
@@ -32,6 +34,7 @@ public class Strike {
 	@Test
 	public void testStrike() {
 		assertEquals(50, soldier.strike());
+		System.out.println(soldierWithSword.strike());
 		assertEquals(110, soldierWithSword.strike());
 	}
 

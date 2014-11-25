@@ -46,7 +46,7 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	@Override
 	public int getHealthPoints() {
-		return this.getHealthPoints();
+		return this.soldier.getHealthPoints();
 	}
 
 	@Override
