@@ -7,19 +7,19 @@ import rts.facade.InfantrymanFacade;
 public class VisitorArmyPrint implements IVisitorArmy {
 
 	@Override
-	public void visite(Army army) {
+	public void visit(Army army) {
 		System.out.println("Visite d'une Armée");
 
 	}
 
 	@Override
-	public void visite(HorsemanFacade horsmam) {
+	public void visit(HorsemanFacade horsmam) {
 		System.out.println("\t visite d'un horsman");
 
 	}
 
 	@Override
-	public void visite(InfantrymanFacade infantryman) {
+	public void visit(InfantrymanFacade infantryman) {
 		System.out.println("\t visite d'un infranryman");
 
 	}

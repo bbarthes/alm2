@@ -18,7 +18,7 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 
 	@Override
 	public void accept(IVisitorArmy v) {
-		v.visite(this);
+		v.visit(this);
 		
 	}
 

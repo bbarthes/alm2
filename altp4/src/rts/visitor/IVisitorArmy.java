@@ -6,8 +6,8 @@ import rts.facade.InfantrymanFacade;
 
 public interface IVisitorArmy {
 	
-	void visite(Army army);
-	void visite(HorsemanFacade horsmam);
-	void visite(InfantrymanFacade infantryman);
+	void visit(Army army);
+	void visit(HorsemanFacade horsmam);
+	void visit(InfantrymanFacade infantryman);
 	
 }

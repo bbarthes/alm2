@@ -65,7 +65,7 @@ public class Army implements IArmy{
 
 	@Override
 	public void accept(IVisitorArmy v) {
-		v.visite(this);
+		v.visit(this);
 		for(ISoldierFacade soldat : this.army)
 		{
 				soldat.accept(v);	
