@@ -23,10 +23,10 @@ public class affichageArmy {
 		army.addArmy(army2);
 		army.accept(printa);
 		army.accept(counta);
-		System.out.println("il y a " + counta.getNumSoldier() + " soldier");
-		System.out.println("Don "+ counta.getNumHorseman() +" horsman");
-		System.out.println("Don "+ counta.getNUmInfantryman() +" infrantryman");
-		System.out.println("répartie dans " + counta.getNumArmy() + " armée");
+		System.out.println("il y a " + counta.getNumSoldier() + " Soldiers");
+		System.out.println("Dont "+ counta.getNumHorseman() +" Horsemans");
+		System.out.println("Dont "+ counta.getNUmInfantryman() +" Infantrymans");
+		System.out.println("Réparti dans " + counta.getNumArmy() + " Armées");
 
 	}
 
