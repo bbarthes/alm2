@@ -34,7 +34,6 @@ public class Strike {
 	@Test
 	public void testStrike() {
 		assertEquals(50, soldier.strike());
-		System.out.println(soldierWithSword.strike());
 		assertEquals(110, soldierWithSword.strike());
 	}
 
