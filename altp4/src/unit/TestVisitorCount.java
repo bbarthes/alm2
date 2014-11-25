@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import rts.composite.Army;
 import rts.composite.IArmy;
+import rts.exception.ErrorHandsFull;
 import rts.visitor.VisitorArmyCount;
 
 public class TestVisitorCount {
@@ -28,7 +29,7 @@ public class TestVisitorCount {
 		this.army.accept(countArmy);
 		assertEquals(this.countArmy.getNumSoldier(), numberSoldier*2);
 		assertEquals(this.countArmy.getNumHorseman(), numberSoldier);
-		assertEquals(this.countArmy.getNUmInfantryman(), numberSoldier);
+		assertEquals(this.countArmy.getNumInfantryman(), numberSoldier);
 		assertEquals(this.countArmy.getNumArmy(), 1);
 	}
 	
@@ -43,11 +44,11 @@ public class TestVisitorCount {
 		this.army.accept(countArmy);
 		assertEquals(this.countArmy.getNumSoldier(), numberSoldier*4);
 		assertEquals(this.countArmy.getNumHorseman(), numberSoldier*3);
-		assertEquals(this.countArmy.getNUmInfantryman(), numberSoldier);
+		assertEquals(this.countArmy.getNumInfantryman(), numberSoldier);
 		assertEquals(this.countArmy.getNumArmy(), 2);
 	}
 	@Test
-	public void CountEmptyArmy() {
+	public void CountEmptyArmy() throws ErrorHandsFull {
 		int numberArmy = 500;
 		for(int i =0 ; i < numberArmy-1; ++i)
 		{
@@ -56,7 +57,7 @@ public class TestVisitorCount {
 		this.army.accept(countArmy);
 		assertEquals(this.countArmy.getNumSoldier(), 0);
 		assertEquals(this.countArmy.getNumHorseman(), 0);
-		assertEquals(this.countArmy.getNUmInfantryman(), 0);
+		assertEquals(this.countArmy.getNumInfantryman(), 0);
 		assertEquals(this.countArmy.getNumArmy(), numberArmy);
 	}
 

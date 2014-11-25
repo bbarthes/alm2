@@ -24,8 +24,8 @@ public class affichageArmy {
 		army.accept(printa);
 		army.accept(counta);
 		System.out.println("il y a " + counta.getNumSoldier() + " Soldiers");
-		System.out.println("Dont "+ counta.getNumHorseman() +" Horsemans");
-		System.out.println("Dont "+ counta.getNUmInfantryman() +" Infantrymans");
+		System.out.println("Dont "+ counta.getNumHorseman() +" Horsemen");
+		System.out.println("Dont "+ counta.getNumInfantryman() +" Infantrymen");
 		System.out.println("Réparti dans " + counta.getNumArmy() + " Armées");
 
 	}

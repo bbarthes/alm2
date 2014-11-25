@@ -50,6 +50,17 @@ public class ArmyTest {
 		assertEquals(this.army.strike(), (this.soldier.strike()+forceSword)*numberSoldier);
 		
 	}
-	
+	@Test
+	public void EmptyArmy() throws ErrorHandsFull {
+		int numberArmy = 500;
+		for(int i =0 ; i < numberArmy-1; ++i)
+		{
+			this.army.addArmy(new Army());
+		}
+		this.army.addWeapon(new Sword(40));
+		
+		assertEquals(this.army.strike(),0);
+		
+	}
 
 }
