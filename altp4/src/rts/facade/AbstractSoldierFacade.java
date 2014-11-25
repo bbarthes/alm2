@@ -11,8 +11,8 @@ import rts.weapon.IWeapon;
 
 public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
-	ISoldierComponent soldier;
-	List<ISoldierComponent> weapons;
+	private ISoldierComponent soldier;
+	private List<ISoldierComponent> weapons;
 
 	public AbstractSoldierFacade(ISoldierComponent soldier) {
 		this.weapons = new ArrayList<>();
