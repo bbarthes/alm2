@@ -1,26 +1,27 @@
 package unit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
-import rts.decorator.SoldierWithHands;
+import rts.facade.ISoldierFacade;
+import rts.facade.InfantrymanFacade;
 import rts.weapon.Shield;
 
 
 public class Parry {
 
-	private SoldierComponent soldier;
-	private SoldierComponent soldierWithSword;
+	private ISoldierFacade soldier;
+	private ISoldierFacade soldierWithSword;
 
 	@Before
 	public void setUp() throws Exception {
-		this.soldier = new Infantryman(60,60);
+		this.soldier = new InfantrymanFacade(60,60);
 
-		this.soldierWithSword = new SoldierWithHands(new Infantryman(60, 60), new Shield(60, 5));
+		this.soldierWithSword = new InfantrymanFacade(60,60);
+		this.soldierWithSword.addWeapon( new Shield(60, 5));
 	}
 	
 	@Test
@@ -32,6 +33,7 @@ public class Parry {
 	
 	@Test
 	public void testParry() {
+		
 		soldier.parry(50);
 		soldierWithSword.parry(50);
 		assertEquals(10, soldier.getHealthPoints());

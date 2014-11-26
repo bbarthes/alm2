@@ -2,7 +2,7 @@ package rts.weapon;
 
 import java.util.Random;
 
-public abstract class WeaponAbstract implements Weapon{
+public abstract class WeaponAbstract implements IWeapon{
 
 	int strength;
 	int health;

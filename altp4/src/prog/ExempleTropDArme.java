@@ -1,9 +1,9 @@
 package prog;
 
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
+import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.weapon.Sword;
+import rts.soldier.Infantryman;
 
 public class ExempleTropDArme {
 
@@ -12,7 +12,7 @@ public class ExempleTropDArme {
 
 	public static void main(String[] args) {
 
-		SoldierComponent s1 = new Infantryman();
+		ISoldierComponent s1 = new Infantryman();
 		System.out.println("Création d'un Infantryman.");
 		boolean continu = true;
 		while(continu)
@@ -50,7 +50,7 @@ public class ExempleTropDArme {
 		while(continu)
 		{
 			
-			SoldierComponent swap = s1.disarm();
+			ISoldierComponent swap = s1.disarm();
 			if(swap == s1)
 			{
 				continu = false;

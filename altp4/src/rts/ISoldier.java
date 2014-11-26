@@ -1,6 +1,7 @@
 package rts;
 
 
+
 public interface ISoldier {
 
 	public int strike();
@@ -8,5 +9,7 @@ public interface ISoldier {
 	public void parry(int strengthEnnemy);
 	
 	public int getHealthPoints();
+	
+	
 	
 }
