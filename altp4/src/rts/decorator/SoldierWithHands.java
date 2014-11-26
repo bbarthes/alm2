@@ -12,18 +12,6 @@ public class SoldierWithHands extends AbstractDecorator {
 		this.weapon = weapon;
 	}
 
-	/*	public void addWeapon(Weapon weapon ) throws ErrorHandsFull
-	{
-		if ( < numberHands)
-		{
-			this.weapons.add(weapon);
-		}
-		else
-		{
-			throw new ErrorHandsFull(this.weapons.capacity());
-		}
-	}*/
-
 	protected void usure(int dammage) {
 		this.weapon.damage(dammage);
 	}
