@@ -19,24 +19,6 @@ public class FullHandsSoldier {
 		this.soldierWithSword = new Infantryman();
 	}
 
-	@Test
-	public void testArm()
-	{
-		boolean continu = true;
-		int i =0;
-		
-		while(continu)
-		{
-
-			try {
-				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
-				i++;
-			} catch (Exception e) {
-				continu = false;
-			}
-		}//*/
-		assertEquals(i, 2);
-	}
 
 	@Test
 	public void testDisarm() {
@@ -57,10 +39,10 @@ public class FullHandsSoldier {
 				continu = false;
 			else
 			{
-				i++;
+				++i;
 				this.soldierWithSword = swap;
 			}
 		}
-		assertEquals(i, 2);
+		assertEquals(i, 5);
 	}
 }

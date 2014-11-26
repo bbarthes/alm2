@@ -46,7 +46,7 @@ public class ArmyTest {
 		assertEquals(this.army.getHealthPoints(), this.soldier.getHealthPoints()*numberSoldier);
 		assertEquals(this.army.strike(), this.soldier.strike()*numberSoldier);
 		this.army.addWeapon(new Sword(forceSword));
-		System.out.println(this.army.strike());
+		
 		assertEquals(this.army.strike(), (this.soldier.strike()+forceSword)*numberSoldier);
 		
 	}

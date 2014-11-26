@@ -27,7 +27,6 @@ public class FullHandsFacade {
 		IWeapon weapon = new Sword(10, 5);
 		while(continu)
 		{
-			System.out.println("titi");
 			try {
 				this.soldierWithSword.addWeapon(weapon);
 				i++;
