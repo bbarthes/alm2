@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
+import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.weapon.Sword;
+import rts.soldier.Infantryman;
 
-public class Disarm {
+public class DisarmSoldier {
 
-	private SoldierComponent soldier;
-	private SoldierComponent soldierWithSword;
+	private ISoldierComponent soldier;
+	private ISoldierComponent soldierWithSword;
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,7 +24,7 @@ public class Disarm {
 	@Test
 	public void testDisarm() {
 		assertNotEquals(soldier, soldierWithSword);
-		SoldierComponent soldierWithOutSword = soldierWithSword.disarm();
+		ISoldierComponent soldierWithOutSword = soldierWithSword.disarm();
 		assertNotEquals(soldier, soldierWithOutSword);
 		soldierWithOutSword = soldierWithOutSword.disarm();
 		assertEquals(soldier, soldierWithOutSword);

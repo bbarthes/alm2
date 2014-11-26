@@ -1,19 +1,20 @@
 package unit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
+import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
+import rts.soldier.Infantryman;
 import rts.weapon.Sword;
 
-public class Strike {
+public class StrikeSoldier {
 	
-	private SoldierComponent soldier;
-	private SoldierComponent soldierWithSword;
+	private ISoldierComponent soldier;
+	private ISoldierComponent soldierWithSword;
 
 	@Before
 	public void setUp() throws Exception {

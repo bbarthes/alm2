@@ -5,14 +5,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.decorator.Infantryman;
-import rts.decorator.SoldierComponent;
+import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
+import rts.soldier.Infantryman;
 import rts.weapon.Sword;
 
-public class FullHands {
+public class FullHandsSoldier {
 
-	private SoldierComponent soldierWithSword;
+	private ISoldierComponent soldierWithSword;
 
 	@Before
 	public void setUp() throws Exception {
@@ -52,7 +52,7 @@ public class FullHands {
 
 		while(continu)
 		{
-			SoldierComponent swap = this.soldierWithSword.disarm();
+			ISoldierComponent swap = this.soldierWithSword.disarm();
 			if(swap == this.soldierWithSword)
 				continu = false;
 			else

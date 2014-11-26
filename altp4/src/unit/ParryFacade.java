@@ -11,7 +11,7 @@ import rts.facade.InfantrymanFacade;
 import rts.weapon.Shield;
 
 
-public class Parry {
+public class ParryFacade {
 
 	private ISoldierFacade soldier;
 	private ISoldierFacade soldierWithSword;

@@ -10,7 +10,7 @@ import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
 import rts.weapon.Sword;
 
-public class Strike {
+public class StrikeFacade {
 	
 	private ISoldierFacade soldier;
 	private ISoldierFacade soldierWithSword;
