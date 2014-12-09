@@ -9,8 +9,8 @@ public class Shield extends WeaponAbstract {
 	public Shield(int strength) {
 		super( strength,15);
 	}
-	public Shield(int strength, int healt) {
-		super( strength,healt);
+	public Shield(int strength, int health) {
+		super( strength,health);
 	}
 
 	@Override
