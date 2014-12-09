@@ -10,7 +10,7 @@ public class FactoryOfAbstractFactoryRts {
 
 	private FactoryOfAbstractFactoryRts (){};
 
-	/*
+	//*
 	static private IAbstractFactoryRts getInstance(Class<?> newTimes) throws ErrorDoctorWho
 	{
 		if(future == null)
@@ -21,7 +21,7 @@ public class FactoryOfAbstractFactoryRts {
 				e.printStackTrace();
 			}
 
-		if(future.getClass().equals(newTimes))
+		if(!future.getClass().equals(newTimes))
 			throw new ErrorDoctorWho(future.getClass().toString());
 
 		return future;
@@ -30,7 +30,7 @@ public class FactoryOfAbstractFactoryRts {
 	static public  IAbstractFactoryRts getInstanceOfPast() throws ErrorDoctorWho
 	{
 
-		//return getInstance(AbstractFactoryRtsOfPast.class )  ; /*
+		return getInstance(AbstractFactoryRtsOfPast.class )  ; /*
 
 		if(future != null)
 			throw new ErrorDoctorWho(future.getClass().toString());
@@ -45,7 +45,7 @@ public class FactoryOfAbstractFactoryRts {
 	static public  IAbstractFactoryRts getInstanceOfFuture() throws ErrorDoctorWho
 	{
 
-		//return getInstance(AbstractFactoryRtsOfFutur.class )  ; /*
+		return getInstance(AbstractFactoryRtsOfFutur.class )  ; /*
 
 		if(past != null)
 			throw new ErrorDoctorWho(future.getClass().toString());
