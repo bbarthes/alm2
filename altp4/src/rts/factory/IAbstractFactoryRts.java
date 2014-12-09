@@ -19,6 +19,6 @@ public interface IAbstractFactoryRts {
 	
 	IWeapon Shield();
 	IWeapon Shield(int strength, int health);
-	
+	//
 
 }
