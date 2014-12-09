@@ -12,7 +12,8 @@ import org.junit.runners.Suite;
 	ParrySoldier.class,
 	StrikeFacade.class,
 	StrikeSoldier.class,
-	TestVisitorCount.class
+	TestVisitorCount.class,
+	FactoryTest.class
 	
 })
 public class JunitTestSuite {   
