@@ -47,7 +47,9 @@ public class Army implements IArmy{
 		{
 			soldat.parry(strengthEnnemySoldat);
 		}
-
+		if (this.getHealthPoints() == 0) {
+			this.notifyObservers();
+		}
 	}
 
 	@Override
