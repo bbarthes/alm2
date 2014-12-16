@@ -133,6 +133,41 @@ public class Army implements IArmy{
 		return this.name;
 	}
 
+	@Override
+	public void addSoldier(int typeSoldier, int number, List<Observer> lo) {
+		ISoldierFacade newSoldier = null;
+		if(typeSoldier%2 == 0)
+		{
+			for(int i = 0; i < number; i++)
+			{
+				newSoldier = new HorsemanFacade();
+				for(Observer o : lo)
+					newSoldier.addObserver(o);
+				this.army.add(newSoldier);
+			}
+		}
+		else
+		{
+			for(int i = 0; i < number; i++)
+			{
+				newSoldier = new InfantrymanFacade();
+				for(Observer o : lo)
+					newSoldier.addObserver(o);
+				this.army.add(newSoldier);
+				
+			}
+		}
+		
+	}
+
+	/*
+	@Override
+	public void addSoldier(ISoldierFacade iSoldierFacade) {
+		if(!this.army.contains(iSoldierFacade))
+			this.army.add(iSoldierFacade);
+		
+	}*/
+
 
 
 }
