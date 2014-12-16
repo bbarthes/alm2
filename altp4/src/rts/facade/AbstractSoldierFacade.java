@@ -6,14 +6,12 @@ import java.util.List;
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
-import rts.observer.DeathSoldierObserver;
-import rts.observer.MyObservable;
 import rts.observer.MyObserver;
 import rts.weapon.IWeapon;
 
 
 
-public abstract class AbstractSoldierFacade implements ISoldierFacade, MyObservable {
+public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	private ISoldierComponent soldier;
 	private List<ISoldierComponent> weapons;

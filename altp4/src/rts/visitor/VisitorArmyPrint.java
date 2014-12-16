@@ -13,7 +13,7 @@ public class VisitorArmyPrint implements IVisitorArmy {
 	}
 
 	@Override
-	public void visit(HorsemanFacade horsmam) {
+	public void visit(HorsemanFacade horseman) {
 		System.out.println("\t visite d'un horseman");
 
 	}
