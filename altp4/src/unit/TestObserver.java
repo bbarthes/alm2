@@ -40,7 +40,7 @@ public class TestObserver {
 	
 	@Test
 	public void testDuel() {
-		System.out.println("Début du duel:");
+		System.out.println("DÃ©but du duel:");
 		
 		soldierA.addObserver(report);
 		soldierB.addObserver(report);
@@ -54,7 +54,7 @@ public class TestObserver {
 	
 	@Test
 	public void testWar() {
-		System.out.println("Début de la bataille:");
+		System.out.println("DÃ©but de la bataille:");
 		
 		ArrayList<Observer> lo = new ArrayList<>();
 		lo.add(deathCount);
