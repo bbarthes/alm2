@@ -1,7 +1,7 @@
 package rts.visitor;
 
 import rts.composite.Army;
-import rts.facade.FuriensFacade;
+import rts.facade.FurienFacade;
 import rts.facade.HorsemanFacade;
 import rts.facade.InfantrymanFacade;
 import rts.facade.KnightriderFacade;
@@ -57,7 +57,7 @@ public class VisitorArmyCount implements IVisitorArmy{
 	}
 
 	@Override
-	public void visit(FuriensFacade furienscacade) {
+	public void visit(FurienFacade furienscacade) {
 		++this.furiens;
 		
 	}

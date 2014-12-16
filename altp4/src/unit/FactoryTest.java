@@ -9,8 +9,8 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import rts.exception.ErrorDoctorWho;
-import rts.factory.AbstractFactoryRtsOfFutur;
-import rts.factory.FactoryOfAbstractFactoryRts;
+import rts.facade.AbstractFactoryRtsOfFutur;
+import rts.facade.FactoryOfAbstractFactoryRts;
 import rts.factory.IAbstractFactoryRts;
 
 public class FactoryTest {

@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
+import rts.facade.Sword;
 import rts.soldier.Infantryman;
-import rts.weapon.Sword;
 
 public class StrikeSoldier {
 	

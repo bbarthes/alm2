@@ -5,18 +5,18 @@ import rts.visitor.IVisitorArmy;
 
 public class HorsemanFacade extends AbstractSoldierFacade {
 	
-	public HorsemanFacade() {
+	protected HorsemanFacade() {
 		super(new Horseman(),"Chevalier Blanc");
 	}
 	
-	public HorsemanFacade(String name) {
+	protected HorsemanFacade(String name) {
 		super(new Horseman(),name);
 	}
 
-	public HorsemanFacade(int health, int strength) {
+	protected HorsemanFacade(int health, int strength) {
 		super(new Horseman(health,strength), "Chevalier Blanc");
 	}
-	public HorsemanFacade(int health, int strength, String name) {
+	protected HorsemanFacade(int health, int strength, String name) {
 		super(new Horseman(health,strength), name);
 	}
 

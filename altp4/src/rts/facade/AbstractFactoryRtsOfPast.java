@@ -1,15 +1,14 @@
-package rts.factory;
+package rts.facade;
 
-import rts.facade.FuriensFacade;
-import rts.facade.ISoldierFacade;
-import rts.facade.KnightriderFacade;
-import rts.weapon.HoltzmanShield;
-import rts.weapon.IWeapon;
-import rts.weapon.Krull;
-import rts.weapon.LightSaber;
+import rts.factory.IAbstractFactoryRts;
 
-public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
+public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
+	
+	protected AbstractFactoryRtsOfPast() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	@Override
 	public ISoldierFacade Infantryman() {
 		return this.Infantryman(50, 50);
@@ -17,12 +16,12 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Infantryman(int health, int strength) {
-		return new FuriensFacade(health, strength);
+		return new InfantrymanFacade(health, strength);
 	}
 	
 	@Override
 	public ISoldierFacade Infantryman(int health, int strength, String name) {
-		return new FuriensFacade(health, strength, name);
+		return new InfantrymanFacade(health, strength);
 	}
 
 	@Override
@@ -32,14 +31,14 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Knight(int health, int strength) {
-		return new KnightriderFacade(health, strength);
-	}
-
-	@Override
-	public ISoldierFacade Knight(int health, int strength, String name) {
-		return new KnightriderFacade(health, strength, name);
+		return new HorsemanFacade(health, strength);
 	}
 	
+	@Override
+	public ISoldierFacade Knight(int health, int strength,String name) {
+		return new HorsemanFacade(health, strength, name);
+	}
+
 	@Override
 	public IWeapon WeaponParry() {
 		return this.WeaponParry(20, 10);
@@ -47,7 +46,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon WeaponParry(int strength, int health) {
-		return new LightSaber(strength, health);
+		return new Sword(strength, health);
 	}
 
 	@Override
@@ -57,7 +56,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Weapon(int strength, int health) {
-		return new Krull(strength, health);
+		return new Dagger(strength, health);
 	}
 
 	@Override
@@ -67,7 +66,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Shield(int strength, int health) {
-		return new HoltzmanShield(strength, health);
+		return new Shield(strength, health);
 	}
 
 }

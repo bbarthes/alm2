@@ -1,14 +1,14 @@
-package rts.weapon;
+package rts.facade;
 
 
 public class Dagger extends WeaponAbstract{
 
-	public Dagger() {
+	protected Dagger() {
 		super(50,12);		
 		
 	}
 	
-	public Dagger(int strength, int health){
+	protected Dagger(int strength, int health){
 		super(strength, health);		
 		
 	}

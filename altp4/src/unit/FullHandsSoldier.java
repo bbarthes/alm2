@@ -7,12 +7,24 @@ import org.junit.Test;
 
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
+import rts.exception.ErrorDoctorWho;
+import rts.facade.FactoryOfAbstractFactoryRts;
+import rts.factory.IAbstractFactoryRts;
 import rts.soldier.Infantryman;
-import rts.weapon.Sword;
 
 public class FullHandsSoldier {
 
-	private ISoldierComponent soldierWithSword;
+	private ISoldierComponent soldierWithSword;	
+	private IAbstractFactoryRts fact;
+	
+	public FullHandsSoldier() {
+		try {
+			this.fact = FactoryOfAbstractFactoryRts.getInstanceOfFuture();
+		} catch (ErrorDoctorWho e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Before
 	public void setUp() throws Exception {
@@ -25,7 +37,7 @@ public class FullHandsSoldier {
 		for(int i =0 ; i <5 ; ++i)
 		{
 			try {
-				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, new Sword(10, 5));
+				this.soldierWithSword = new SoldierWithHands(this.soldierWithSword, fact.WeaponParry(10, 5));
 			} catch (Exception e) { /*rien*/ }
 		}
 

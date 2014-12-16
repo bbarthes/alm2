@@ -7,33 +7,43 @@ import org.junit.Test;
 
 import rts.composite.Army;
 import rts.composite.IArmy;
+import rts.exception.ErrorDoctorWho;
 import rts.exception.ErrorHandsFull;
+import rts.facade.FactoryOfAbstractFactoryRts;
 import rts.facade.ISoldierFacade;
-import rts.facade.InfantrymanFacade;
-import rts.weapon.Sword;
+import rts.factory.IAbstractFactoryRts;
 
 public class ArmyTest {
 
 	
 	private ISoldierFacade soldier;
 	private IArmy army;
-
-
+	private IAbstractFactoryRts fact;
+	
+	
+	public ArmyTest() {
+		try {
+			this.fact = FactoryOfAbstractFactoryRts.getInstanceOfFuture();
+		} catch (ErrorDoctorWho e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@Before
 	public void setUp() throws Exception {
-		this.soldier = new InfantrymanFacade();
+		this.soldier = fact.Infantryman();
 		this.army = new Army();
 	}
 	@Test
 	public void ArmyOfInfantryman() throws ErrorHandsFull {
-		this.army.addSoldier(3, 1);
+		this.army.addSoldier(3, 1, fact);
 		assertEquals(this.army.getHealthPoints(), this.soldier.getHealthPoints());
 		assertEquals(this.army.strike(), this.soldier.strike());
 		this.army.parry(13);
 		this.soldier.parry(13);
 		assertEquals(this.army.getHealthPoints(), this.soldier.getHealthPoints());
-		this.army.addWeapon(new Sword(50));
-		this.soldier.addWeapon(new Sword(50));
+		this.army.addWeapon(fact.WeaponParry(50,10));
+		this.soldier.addWeapon(fact.WeaponParry(50,10));
 		assertEquals(this.army.strike(), this.soldier.strike());
 		
 	}
@@ -41,11 +51,11 @@ public class ArmyTest {
 	public void ArmyCompose() throws ErrorHandsFull {
 		int forceSword= 50;
 		int numberSoldier = 10;
-		this.army.addSoldier(3, numberSoldier);
+		this.army.addSoldier(3, numberSoldier, fact);
 		
 		assertEquals(this.army.getHealthPoints(), this.soldier.getHealthPoints()*numberSoldier);
 		assertEquals(this.army.strike(), this.soldier.strike()*numberSoldier);
-		this.army.addWeapon(new Sword(forceSword));
+		this.army.addWeapon(fact.WeaponParry(forceSword,10));
 		
 		assertEquals(this.army.strike(), (this.soldier.strike()+forceSword)*numberSoldier);
 		
@@ -57,7 +67,7 @@ public class ArmyTest {
 		{
 			this.army.addArmy(new Army());
 		}
-		this.army.addWeapon(new Sword(40));
+		this.army.addWeapon(fact.WeaponParry(40,10));
 		
 		assertEquals(this.army.strike(),0);
 		

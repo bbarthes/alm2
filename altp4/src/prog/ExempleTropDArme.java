@@ -2,7 +2,7 @@ package prog;
 
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
-import rts.weapon.Sword;
+import rts.facade.Sword;
 import rts.soldier.Infantryman;
 
 public class ExempleTropDArme {

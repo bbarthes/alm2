@@ -1,7 +1,7 @@
 package rts.visitor;
 
 import rts.composite.Army;
-import rts.facade.FuriensFacade;
+import rts.facade.FurienFacade;
 import rts.facade.HorsemanFacade;
 import rts.facade.InfantrymanFacade;
 import rts.facade.KnightriderFacade;
@@ -27,7 +27,7 @@ public class VisitorArmyPrint implements IVisitorArmy {
 	}
 
 	@Override
-	public void visit(FuriensFacade furiens) {
+	public void visit(FurienFacade furiens) {
 		System.out.println("\t visite d'un furiens");
 		
 	}

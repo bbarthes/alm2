@@ -1,6 +1,6 @@
 package rts.decorator;
 
-import rts.weapon.IWeapon;
+import rts.facade.IWeapon;
 
 public class SoldierWithHands extends AbstractDecorator {
 

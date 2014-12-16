@@ -8,19 +8,19 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 	/**
 	 * @param soldier
 	 */
-	public InfantrymanFacade() {
+	protected InfantrymanFacade() {
 		super(new Infantryman(),"Ryan");
 	}
 	
-	public InfantrymanFacade(String name) {
+	protected InfantrymanFacade(String name) {
 		super(new Infantryman(), name);
 	}
 	
-	public InfantrymanFacade(int health, int strength) {
+	protected InfantrymanFacade(int health, int strength) {
 		super(new Infantryman(health,strength),"Ryan");
 	}
 	
-	public InfantrymanFacade(int health, int strength, String name) {
+	protected InfantrymanFacade(int health, int strength, String name) {
 		super(new Infantryman(health,strength),name);
 	}
 

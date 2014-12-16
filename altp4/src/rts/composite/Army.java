@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rts.exception.ErrorHandsFull;
-import rts.facade.HorsemanFacade;
 import rts.facade.ISoldierFacade;
-import rts.facade.InfantrymanFacade;
+import rts.facade.IWeapon;
+import rts.factory.IAbstractFactoryRts;
 import rts.observer.Observer;
 import rts.visitor.IVisitorArmy;
-import rts.weapon.IWeapon;
 
 public class Army implements IArmy{
 	
@@ -95,21 +94,8 @@ public class Army implements IArmy{
 	}
 
 	@Override
-	public void addSoldier(int typeSoldier, int number) {
-		if(typeSoldier%2 == 0)
-		{
-			for(int i = 0; i < number; i++)
-			{
-				this.army.add(new HorsemanFacade());
-			}
-		}
-		else
-		{
-			for(int i = 0; i < number; i++)
-			{
-				this.army.add(new InfantrymanFacade());
-			}
-		}
+	public void addSoldier(int typeSoldier, int number,IAbstractFactoryRts fact) {
+		this.addSoldier(typeSoldier, number, fact, new ArrayList<Observer>());
 		
 	}
 
@@ -134,13 +120,13 @@ public class Army implements IArmy{
 	}
 
 	@Override
-	public void addSoldier(int typeSoldier, int number, List<Observer> lo) {
+	public void addSoldier(int typeSoldier, int number,  IAbstractFactoryRts fact, List<Observer> lo) {
 		ISoldierFacade newSoldier = null;
 		if(typeSoldier%2 == 0)
 		{
 			for(int i = 0; i < number; i++)
 			{
-				newSoldier = new HorsemanFacade();
+				newSoldier = fact.Knight();
 				for(Observer o : lo)
 					newSoldier.addObserver(o);
 				this.army.add(newSoldier);
@@ -150,7 +136,7 @@ public class Army implements IArmy{
 		{
 			for(int i = 0; i < number; i++)
 			{
-				newSoldier = new InfantrymanFacade();
+				newSoldier = fact.Infantryman();
 				for(Observer o : lo)
 					newSoldier.addObserver(o);
 				this.army.add(newSoldier);

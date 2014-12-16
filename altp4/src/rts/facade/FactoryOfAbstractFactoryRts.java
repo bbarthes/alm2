@@ -1,6 +1,7 @@
-package rts.factory;
+package rts.facade;
 
 import rts.exception.ErrorDoctorWho;
+import rts.factory.IAbstractFactoryRts;
 
 public class FactoryOfAbstractFactoryRts {
 
@@ -37,6 +38,11 @@ public class FactoryOfAbstractFactoryRts {
 
 		return getInstance(AbstractFactoryRtsOfFutur.class )  ;
 
+	}
+	
+	static public IAbstractFactoryRts getCurrentInstance()
+	{
+		return times;
 	}
 
 

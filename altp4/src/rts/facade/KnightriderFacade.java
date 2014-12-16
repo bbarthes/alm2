@@ -5,21 +5,18 @@ import rts.visitor.IVisitorArmy;
 
 public class KnightriderFacade extends AbstractSoldierFacade {
 	
-	/**
-	 * @param man
-	 */
-	public KnightriderFacade() {
+	protected KnightriderFacade() {
 		super(new Knightrider(),"david hasselhoff");
 	}
 	
-	public KnightriderFacade(String name) {
+	protected KnightriderFacade(String name) {
 		super(new Knightrider(), name);
 	}
 
-	public KnightriderFacade(int health, int strength) {
+	protected KnightriderFacade(int health, int strength) {
 		super(new Knightrider(health,strength), "david hasselhoff");
 	}
-	public KnightriderFacade(int health, int strength, String name) {
+	protected KnightriderFacade(int health, int strength, String name) {
 		super(new Knightrider(health,strength), name);
 	}
 

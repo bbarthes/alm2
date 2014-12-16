@@ -1,4 +1,4 @@
-package rts.weapon;
+package rts.facade;
 
 public interface IWeapon extends Cloneable {
 

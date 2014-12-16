@@ -1,7 +1,7 @@
 /**
  * 
  */
-package rts.weapon;
+package rts.facade;
 
 
 /**
@@ -10,10 +10,10 @@ package rts.weapon;
  */
 public class LightSaber extends WeaponAbstract {
 
-	public LightSaber(int strengh) {
+	protected LightSaber(int strengh) {
 		super(strengh, 10);
 	}
-	public LightSaber(int strength, int health) {
+	protected LightSaber(int strength, int health) {
 		super(strength, health);
 	}
 

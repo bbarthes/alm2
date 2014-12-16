@@ -1,15 +1,15 @@
-package rts.weapon;
+package rts.facade;
 
 
 public class Shield extends WeaponAbstract {
 
-	public Shield() {
+	protected Shield() {
 		super(100,15);
 	}
-	public Shield(int strength) {
+	protected Shield(int strength) {
 		super( strength,15);
 	}
-	public Shield(int strength, int health) {
+	protected Shield(int strength, int health) {
 		super( strength,health);
 	}
 

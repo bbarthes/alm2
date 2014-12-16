@@ -1,4 +1,4 @@
-package rts.weapon;
+package rts.facade;
 
 import java.util.Random;
 

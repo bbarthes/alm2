@@ -7,7 +7,6 @@ import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
 import rts.observer.Observer;
-import rts.weapon.IWeapon;
 
 
 
@@ -19,7 +18,7 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 	
 	private ArrayList<Observer> tabObservers;
 
-	public AbstractSoldierFacade(ISoldierComponent soldier, String name) {
+	protected AbstractSoldierFacade(ISoldierComponent soldier, String name) {
 		this.weapons = new ArrayList<>();
 		this.soldier = soldier;
 		this.tabObservers = new ArrayList<Observer>();

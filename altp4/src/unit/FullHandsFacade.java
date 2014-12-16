@@ -5,18 +5,29 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import rts.exception.ErrorDoctorWho;
+import rts.facade.FactoryOfAbstractFactoryRts;
 import rts.facade.ISoldierFacade;
-import rts.facade.InfantrymanFacade;
-import rts.weapon.IWeapon;
-import rts.weapon.Sword;
+import rts.facade.IWeapon;
+import rts.factory.IAbstractFactoryRts;
 
 public class FullHandsFacade {
 
 	private ISoldierFacade soldierWithSword;
+	private IAbstractFactoryRts fact;
+	
+	public FullHandsFacade() {
+		try {
+			this.fact = FactoryOfAbstractFactoryRts.getInstanceOfFuture();
+		} catch (ErrorDoctorWho e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Before
 	public void setUp() throws Exception {
-		this.soldierWithSword = new InfantrymanFacade();
+		this.soldierWithSword = fact.Infantryman();
 	}
 
 	@Test
@@ -24,7 +35,7 @@ public class FullHandsFacade {
 	{
 		boolean continu = true;
 		int i =0;
-		IWeapon weapon = new Sword(10, 5);
+		IWeapon weapon = fact.WeaponParry(10, 5);
 		while(continu)
 		{
 			try {

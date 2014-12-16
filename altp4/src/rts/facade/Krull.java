@@ -1,14 +1,14 @@
-package rts.weapon;
+package rts.facade;
 
 
 public class Krull extends WeaponAbstract{
 
-	public Krull() {
+	protected Krull() {
 		super(50,12);		
 		
 	}
 	
-	public Krull(int strength, int health){
+	protected Krull(int strength, int health){
 		super(strength, health);		
 		
 	}

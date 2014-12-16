@@ -1,20 +1,15 @@
-package rts.factory;
+package rts.facade;
 
-import rts.facade.HorsemanFacade;
-import rts.facade.ISoldierFacade;
-import rts.facade.InfantrymanFacade;
-import rts.weapon.Dagger;
-import rts.weapon.IWeapon;
-import rts.weapon.Shield;
-import rts.weapon.Sword;
+import rts.factory.IAbstractFactoryRts;
 
-public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
+public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
-	
-	protected AbstractFactoryRtsOfPast() {
-		// TODO Auto-generated constructor stub
+	/**
+	 * 
+	 */
+	protected AbstractFactoryRtsOfFutur() {
 	}
-	
+
 	@Override
 	public ISoldierFacade Infantryman() {
 		return this.Infantryman(50, 50);
@@ -22,12 +17,12 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Infantryman(int health, int strength) {
-		return new InfantrymanFacade(health, strength);
+		return new FurienFacade(health, strength);
 	}
 	
 	@Override
 	public ISoldierFacade Infantryman(int health, int strength, String name) {
-		return new InfantrymanFacade(health, strength);
+		return new FurienFacade(health, strength, name);
 	}
 
 	@Override
@@ -37,14 +32,14 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Knight(int health, int strength) {
-		return new HorsemanFacade(health, strength);
-	}
-	
-	@Override
-	public ISoldierFacade Knight(int health, int strength,String name) {
-		return new HorsemanFacade(health, strength, name);
+		return new KnightriderFacade(health, strength);
 	}
 
+	@Override
+	public ISoldierFacade Knight(int health, int strength, String name) {
+		return new KnightriderFacade(health, strength, name);
+	}
+	
 	@Override
 	public IWeapon WeaponParry() {
 		return this.WeaponParry(20, 10);
@@ -52,7 +47,7 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon WeaponParry(int strength, int health) {
-		return new Sword(strength, health);
+		return new LightSaber(strength, health);
 	}
 
 	@Override
@@ -62,7 +57,7 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Weapon(int strength, int health) {
-		return new Dagger(strength, health);
+		return new Krull(strength, health);
 	}
 
 	@Override
@@ -72,7 +67,7 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Shield(int strength, int health) {
-		return new Shield(strength, health);
+		return new HoltzmanShield(strength, health);
 	}
 
 }

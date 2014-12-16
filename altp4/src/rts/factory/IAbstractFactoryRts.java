@@ -1,7 +1,7 @@
 package rts.factory;
 
 import rts.facade.ISoldierFacade;
-import rts.weapon.IWeapon;
+import rts.facade.IWeapon;
 
 public interface IAbstractFactoryRts {
 		

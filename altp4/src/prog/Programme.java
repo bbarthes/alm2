@@ -2,8 +2,8 @@ package prog;
 
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
-import rts.weapon.Shield;
-import rts.weapon.Sword;
+import rts.facade.Shield;
+import rts.facade.Sword;
 import rts.soldier.Horseman;
 import rts.soldier.Infantryman;
 
