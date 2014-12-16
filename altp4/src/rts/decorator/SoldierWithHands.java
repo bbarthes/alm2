@@ -27,19 +27,24 @@ public class SoldierWithHands extends AbstractDecorator {
 		if( ! this.isBroken())
 		{
 			strike =+ this.weapon.strike();
-			this.usure(1);
+			if(strike != 0)
+				this.usure(1);
 		}
 		return super.strike()+ strike;
 	}
 
 	@Override
 	public void parry(int strengthEnnemy) {
+
+		int newStrengthEnnemy =strengthEnnemy;
 		if(!this.isBroken())
 		{
-			strengthEnnemy = this.weapon.parry(strengthEnnemy);
-			this.usure(1);
+			newStrengthEnnemy = this.weapon.parry(strengthEnnemy);
+			if(newStrengthEnnemy != strengthEnnemy)
+				this.usure(1);
+			
 		}
-
+		strengthEnnemy = newStrengthEnnemy;
 		this.deco.parry(strengthEnnemy);
 
 	}
