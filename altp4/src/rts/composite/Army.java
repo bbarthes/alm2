@@ -7,14 +7,14 @@ import rts.exception.ErrorHandsFull;
 import rts.facade.HorsemanFacade;
 import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
-import rts.observer.MyObserver;
+import rts.observer.Observer;
 import rts.visitor.IVisitorArmy;
 import rts.weapon.IWeapon;
 
 public class Army implements IArmy{
 	
 	private List<ISoldierFacade> army;
-	private List<MyObserver> tabObservers;
+	private List<Observer> tabObservers;
 	private String name;
 
 	public Army(String name)
@@ -111,17 +111,17 @@ public class Army implements IArmy{
 		
 	}
 
-	public void addObserver(MyObserver o) {
+	public void addObserver(Observer o) {
 		tabObservers.add(o);
 	}
 	
-	public void suppObserver(MyObserver o){
+	public void suppObserver(Observer o){
 		tabObservers.remove(o);
 	}
 	
 	public void notifyObservers(){
 		for ( int i = 0; i<tabObservers.size(); i++){
-			MyObserver o = tabObservers.get(i);
+			Observer o = tabObservers.get(i);
 			o.update(this);
 		}
 	}
