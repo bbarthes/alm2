@@ -1,0 +1,74 @@
+\documentclass[%
+a4paper,
+%twoside,
+11pt
+]{article}
+
+% encoding, font, language
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman, english]{babel}
+
+
+\usepackage[
+    handwritten,
+    nowarnings,
+    %myconfig
+]
+{xcookybooky}
+
+
+\begin{document}
+
+\title{Architecture logicielle \\ Feuille 3 \\ Stratégie temps réel – Soldats armés}
+\author{Benoit Barthes - Anne-laure Mesure}
+\maketitle
+
+\section*{Exercice 1}
+
+Pour implémenter notre jeu de stratégie, nous avons d'abord commencé par une hierarchie simple comprenant une interface Soldier et deux classes filles: Infantryman et Horseman. Nous avons ensuite mis en place la décoration de ces soldats, décoration qui revient à les équiper en armes et/ou boucliers. Le pattern Decorator nous permet ainsi de décorer (pour le moment) à l'infini un soldat avec des armes.
+\begin{figure}[!ht]
+    \center
+    \includegraphics[width = \textwidth]{imgs/TP3_UML.png}
+    %\caption{Diagramme UML de la décoration}
+    %\label{bloghiko}
+\end{figure}
+
+Un soldat peut effectuer deux actions: strike() qui renvoie la puissance du coup et parry() qui déterminera les dégâts reçut.
+
+\begin{figure}[!ht]
+    \center
+    \includegraphics[width = \textwidth]{imgs/tp3_sequence.png}
+    %\caption{Diagramme UML avant refactoring}
+    %\label{bloghiko}
+\end{figure}
+
+\section*{Exercice 2}
+Cependant le pattern Decorator a également deux défauts majeurs pour notre architecture.\\
+La décoration n'est pas limitée, un soldat peut donc exister avec n épées sur lui ce qui manque de réalisme.\\
+Supprimer une arme n'est pas aisée. Il faut descendre dans la liste des décoration  jusqu'à trouver l'élément que l'on souhaite supprimer.\\
+Pour cela on passe par l'introspection.
+
+\subsection*{2.1}
+Quand on décore un soldierComponent avec un nouvel équipement, on vérifie s'il s'agit d'une classe fille de la classe Equipment, si c'est le cas on incrémente un compteur d'équipements.Si le compteur atteint 3, on déclenche une exception.
+\subsection*{2.2}
+Pour le désarmement, on retire la dernière décoration de la pile des décorations.
+
+\section*{Exercice 3}
+
+Pour cet question, nous avons extrait les classes Equipment, Sword, Shield, et Dagger afin de pouvoir les gérer indépendamment du reste de l'architecture. Nous avons créé l'interface Weapon, la classe abstraite AbstractWeapon qui implémente cette interface et les classes Sword, Shield et Dagger qui héritent de AbstractWeapon.\\
+Pour effectuer le lien avec notre architecture, nous avons ajouté une classe  SoldierWithHands. SoldierWithHands est une décoration de Soldier et est composé d'un weapon.\\
+
+Le constructeur prend en argument l'objet à décorer ainsi qu'un objet Weapon.
+Cette classe permet aussi la gestion de contraintes telles que la limitation du nombre d'armes ainsi que la destruction d'une arme par usure.\\\\
+Pour la gestion des contraintes du max d'instance d'une classe dans la chaîne de décoration il faut regarder la chaîne avec la commande désarmement jusqu'à trouver une autre instance de la classe ou trouver la fin de la chaine.
+
+\begin{figure}[!ht]
+    \center
+    \includegraphics[width = \textwidth]{imgs/TP3_UML_Ex3.png}
+    %\caption{Diagramme UML avant refactoring}
+    %\label{bloghiko}
+\end{figure}
+
+
+\end{document} 
