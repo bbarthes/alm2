@@ -49,11 +49,9 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 	public void parry(int strengthEnnemy) {
 		soldier.parry(strengthEnnemy);
 		this.clearDeco();
-		System.out.println(this.getHealthPoints());
 		if (soldier.getHealthPoints() == 0) {
 			this.notifyObservers();
 		}
-		
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package unit;
 
+import java.util.ArrayList;
+import rts.observer.Observer;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,19 +52,14 @@ public class TestObserver {
 	
 	@Test
 	public void testWar() {
-		this.armyA.addSoldier(1, 5);
-		this.armyB.addSoldier(1, 5);
 		
-		armyA.addObserver(deathCount);
-		armyB.addObserver(deathCount);
-		System.out.println(armyB.toString());
-//		for(ISoldierFacade soldat : armyB.)
-//		{
-//			healthPoints += soldat.getHealthPoints();
-//		}
+		ArrayList<Observer> lo = new ArrayList<>();
+		lo.add(deathCount);
+		lo.add(report);
 		
-		//armyA.addObserver(report);
-		//armyB.addObserver(report);
+		this.armyA.addSoldier(1, 5, lo);
+		this.armyB.addSoldier(1, 5, lo);
+		
 		int damage = armyA.strike();
 		armyB.parry(damage);
 	}

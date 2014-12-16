@@ -8,7 +8,6 @@ public class FightReportObserver implements Observer {
 
 	@Override
 	public void update(Observable o) {
-		System.out.println(o.getClass());
 		if (o instanceof Army) {
 			IArmy army = (IArmy) o;
 			System.out.println("L'armée " + army.getName()+ " a été détruite.");
