@@ -12,6 +12,10 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 		super(new Infantryman(),"Ryan");
 	}
 	
+	public InfantrymanFacade(String name) {
+		super(new Infantryman(), name);
+	}
+	
 	public InfantrymanFacade(int health, int strength) {
 		super(new Infantryman(health,strength),"Ryan");
 	}

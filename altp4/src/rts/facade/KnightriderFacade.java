@@ -11,6 +11,10 @@ public class KnightriderFacade extends AbstractSoldierFacade {
 	public KnightriderFacade() {
 		super(new Knightrider(),"david hasselhoff");
 	}
+	
+	public KnightriderFacade(String name) {
+		super(new Knightrider(), name);
+	}
 
 	public KnightriderFacade(int health, int strength) {
 		super(new Knightrider(health,strength), "david hasselhoff");

@@ -12,6 +12,10 @@ public class FuriensFacade extends AbstractSoldierFacade {
 		super(new Furiens(),"Riddick");
 	}
 	
+	public FuriensFacade(String name) {
+		super(new Furiens(), name);
+	}
+	
 	public FuriensFacade(int health, int strength) {
 		super(new Furiens(health,strength),"Riddick");
 	}

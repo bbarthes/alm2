@@ -8,6 +8,10 @@ public class HorsemanFacade extends AbstractSoldierFacade {
 	public HorsemanFacade() {
 		super(new Horseman(),"Chevalier Blanc");
 	}
+	
+	public HorsemanFacade(String name) {
+		super(new Horseman(),name);
+	}
 
 	public HorsemanFacade(int health, int strength) {
 		super(new Horseman(health,strength), "Chevalier Blanc");
