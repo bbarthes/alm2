@@ -132,14 +132,15 @@ public class Army implements IArmy{
 	}
 
 	@Override
-	public void addSoldier(int typeSoldier, int number, Observer o) {
+	public void addSoldier(int typeSoldier, int number, List<Observer> lo) {
 		ISoldierFacade newSoldier = null;
 		if(typeSoldier%2 == 0)
 		{
 			for(int i = 0; i < number; i++)
 			{
 				newSoldier = new HorsemanFacade();
-				newSoldier.addObserver(o);
+				for(Observer o : lo)
+					newSoldier.addObserver(o);
 				this.army.add(newSoldier);
 			}
 		}
@@ -148,7 +149,8 @@ public class Army implements IArmy{
 			for(int i = 0; i < number; i++)
 			{
 				newSoldier = new InfantrymanFacade();
-				newSoldier.addObserver(o);
+				for(Observer o : lo)
+					newSoldier.addObserver(o);
 				this.army.add(newSoldier);
 				
 			}
