@@ -1,11 +1,12 @@
 package rts.factory;
 
-import rts.facade.HorsemanFacade;
+import rts.facade.FuriensFacade;
 import rts.facade.ISoldierFacade;
-import rts.facade.InfantrymanFacade;
-import rts.weapon.Dagger;
+import rts.facade.KnightriderFacade;
+import rts.weapon.HoltzmanShield;
 import rts.weapon.IWeapon;
-import rts.weapon.Sword;
+import rts.weapon.Krull;
+import rts.weapon.LightSaber;
 
 public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
@@ -16,7 +17,12 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Infantryman(int health, int strength) {
-		return new InfantrymanFacade(health, strength);
+		return new FuriensFacade(health, strength);
+	}
+	
+	@Override
+	public ISoldierFacade Infantryman(int health, int strength, String name) {
+		return new FuriensFacade(health, strength, name);
 	}
 
 	@Override
@@ -26,9 +32,14 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public ISoldierFacade Knight(int health, int strength) {
-		return new HorsemanFacade(health, strength);
+		return new KnightriderFacade(health, strength);
 	}
 
+	@Override
+	public ISoldierFacade Knight(int health, int strength, String name) {
+		return new KnightriderFacade(health, strength, name);
+	}
+	
 	@Override
 	public IWeapon WeaponParry() {
 		return this.WeaponParry(20, 10);
@@ -36,7 +47,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon WeaponParry(int strength, int health) {
-		return new Sword(strength, health);
+		return new LightSaber(strength, health);
 	}
 
 	@Override
@@ -46,7 +57,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Weapon(int strength, int health) {
-		return new Dagger(strength, health);
+		return new Krull(strength, health);
 	}
 
 	@Override
@@ -56,7 +67,7 @@ public class AbstractFactoryRtsOfFutur implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Shield(int strength, int health) {
-		return new rts.weapon.Shield(strength, health);
+		return new HoltzmanShield(strength, health);
 	}
 
 }

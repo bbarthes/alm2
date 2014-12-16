@@ -12,11 +12,6 @@ public class Dagger extends WeaponAbstract{
 		super(strength, health);		
 		
 	}
-	
-	@Override
-	public int strike() {
-		return super.strength;
-	}
 
 	@Override
 	public int parry(int strengthEnnemy) {

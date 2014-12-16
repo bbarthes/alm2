@@ -20,8 +20,7 @@ public class TestObserver {
 		this.soldierA = new InfantrymanFacade();
 		this.soldierB = new InfantrymanFacade();
 		this.soldierC = new InfantrymanFacade();
-		
-		
+
 		
 	}
 	
