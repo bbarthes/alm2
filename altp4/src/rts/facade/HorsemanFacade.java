@@ -22,5 +22,4 @@ public class HorsemanFacade extends AbstractSoldierFacade {
 		v.visit(this);
 
 	}
-
 }

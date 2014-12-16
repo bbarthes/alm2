@@ -2,6 +2,6 @@ package rts.observer;
 
 public interface MyObserver {
 
-	void update(MyObservable arg0, Object arg1);
+	void update(MyObservable o);
 
 }

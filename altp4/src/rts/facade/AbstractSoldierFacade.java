@@ -2,21 +2,28 @@ package rts.facade;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
+import rts.observer.DeathSoldierObserver;
+import rts.observer.MyObservable;
+import rts.observer.MyObserver;
 import rts.weapon.IWeapon;
 
 
 
-public abstract class AbstractSoldierFacade implements ISoldierFacade {
+public abstract class AbstractSoldierFacade implements ISoldierFacade, MyObservable {
 
 	private ISoldierComponent soldier;
 	private List<ISoldierComponent> weapons;
+	
+	private ArrayList<MyObserver> tabObservers;
 
 	public AbstractSoldierFacade(ISoldierComponent soldier) {
 		this.weapons = new ArrayList<>();
 		this.soldier = soldier;
+		this.tabObservers = new ArrayList<MyObserver>();
 	}
 
 	protected void clearDeco()
@@ -42,6 +49,9 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 	public void parry(int strengthEnnemy) {
 		soldier.parry(strengthEnnemy);;
 		this.clearDeco();
+		if (soldier.getHealthPoints() == 0) {
+			this.notifyObservers();
+		}
 	}
 
 	@Override
@@ -57,6 +67,21 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 		}
 		this.soldier = new SoldierWithHands(this.soldier, (IWeapon)weapon.clone());
 		this.weapons.add(this.soldier);
+	}
+	
+	public void addObserver(MyObserver o) {
+		tabObservers.add(o);
+	}
+	
+	public void suppObserver(MyObserver o){
+		tabObservers.remove(o);
+	}
+	
+	public void notifyObservers(){
+		for ( int i = 0; i<tabObservers.size(); i++){
+			MyObserver o = tabObservers.get(i);
+			o.update(this);
+		}
 	}
 
 }

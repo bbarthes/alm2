@@ -1,13 +1,11 @@
 package rts.observer;
 
-public class MyObservable{
+public interface MyObservable{
 	
-	public void notifyObservers() {
-		
-	}
+	public void addObserver(MyObserver o);
 	
-	public void notifyObservers(Object arg) {
-		
-	}
+	public void suppObserver(MyObserver o);
+	
+	public void notifyObservers();
 
 }

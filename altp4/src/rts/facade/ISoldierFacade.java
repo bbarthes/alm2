@@ -2,6 +2,7 @@ package rts.facade;
 
 import rts.ISoldier;
 import rts.exception.ErrorHandsFull;
+import rts.observer.MyObservable;
 import rts.visitor.IVisitorArmy;
 import rts.weapon.IWeapon;
 
