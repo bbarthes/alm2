@@ -5,9 +5,6 @@ import rts.visitor.IVisitorArmy;
 
 public class HorsemanFacade extends AbstractSoldierFacade {
 	
-	/**
-	 * @param man
-	 */
 	public HorsemanFacade() {
 		super(new Horseman(),"Chevalier Blanc");
 	}

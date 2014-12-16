@@ -5,6 +5,7 @@ import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
 import rts.weapon.Dagger;
 import rts.weapon.IWeapon;
+import rts.weapon.Shield;
 import rts.weapon.Sword;
 
 public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
@@ -23,6 +24,11 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 	public ISoldierFacade Infantryman(int health, int strength) {
 		return new InfantrymanFacade(health, strength);
 	}
+	
+	@Override
+	public ISoldierFacade Infantryman(int health, int strength, String name) {
+		return new InfantrymanFacade(health, strength);
+	}
 
 	@Override
 	public ISoldierFacade Knight() {
@@ -32,6 +38,11 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 	@Override
 	public ISoldierFacade Knight(int health, int strength) {
 		return new HorsemanFacade(health, strength);
+	}
+	
+	@Override
+	public ISoldierFacade Knight(int health, int strength,String name) {
+		return new HorsemanFacade(health, strength, name);
 	}
 
 	@Override
@@ -61,7 +72,7 @@ public class AbstractFactoryRtsOfPast implements IAbstractFactoryRts {
 
 	@Override
 	public IWeapon Shield(int strength, int health) {
-		return new rts.weapon.Shield(strength, health);
+		return new Shield(strength, health);
 	}
 
 }

@@ -7,9 +7,11 @@ public interface IAbstractFactoryRts {
 		
 	ISoldierFacade Infantryman();
 	ISoldierFacade Infantryman(int health, int strength);
+	ISoldierFacade Infantryman(int health, int strength,String name);
 	
 	ISoldierFacade Knight();
-	ISoldierFacade Knight(int health, int strength); //
+	ISoldierFacade Knight(int health, int strength); 
+	ISoldierFacade Knight(int health, int strength,String name);
 	
 	IWeapon WeaponParry();
 	IWeapon WeaponParry(int strength, int health);

@@ -19,8 +19,6 @@ public class TestObserver {
 		this.soldierB = new InfantrymanFacade();
 		this.soldierC = new InfantrymanFacade();
 		
-		DeathSoldierObserver deathCount = new DeathSoldierObserver();
-		
 		
 	}
 	
