@@ -13,7 +13,8 @@ import org.junit.runners.Suite;
 	StrikeFacade.class,
 	StrikeSoldier.class,
 	TestVisitorCount.class,
-	FactoryTest.class
+	FactoryTest.class,
+	TestObserver.class
 	
 })
 public class JunitTestSuite {   

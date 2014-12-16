@@ -1,15 +1,11 @@
 package unit;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import rts.facade.AbstractSoldierFacade;
-import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
 import rts.observer.DeathSoldierObserver;
-import rts.weapon.Sword;
 
 public class TestObserver {
 	

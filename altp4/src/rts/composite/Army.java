@@ -12,12 +12,21 @@ import rts.visitor.IVisitorArmy;
 import rts.weapon.IWeapon;
 
 public class Army implements IArmy{
-	List<ISoldierFacade> army;
+	
+	private List<ISoldierFacade> army;
 	private List<MyObserver> tabObservers;
+	private String name;
 
-	public Army() {
+	public Army(String name)
+	{
+		
 		this.army = new ArrayList<>();
 		this.tabObservers = new ArrayList<>();
+		this.name = name;
+	}
+	
+	public Army() {
+		this("la 125");
 
 	}
 
@@ -115,6 +124,11 @@ public class Army implements IArmy{
 			MyObserver o = tabObservers.get(i);
 			o.update(this);
 		}
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
 	}
 
 

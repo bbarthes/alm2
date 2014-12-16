@@ -9,11 +9,15 @@ public class InfantrymanFacade extends AbstractSoldierFacade {
 	 * @param soldier
 	 */
 	public InfantrymanFacade() {
-		super(new Infantryman());
+		super(new Infantryman(),"Ryan");
 	}
 	
 	public InfantrymanFacade(int health, int strength) {
-		super(new Infantryman(health,strength));
+		super(new Infantryman(health,strength),"Ryan");
+	}
+	
+	public InfantrymanFacade(int health, int strength, String name) {
+		super(new Infantryman(health,strength),name);
 	}
 
 	@Override

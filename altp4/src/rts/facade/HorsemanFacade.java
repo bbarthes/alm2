@@ -9,13 +9,15 @@ public class HorsemanFacade extends AbstractSoldierFacade {
 	 * @param man
 	 */
 	public HorsemanFacade() {
-		super(new Horseman());
+		super(new Horseman(),"Chevalier Blanc");
 	}
 
 	public HorsemanFacade(int health, int strength) {
-		super(new Horseman(health,strength));
+		super(new Horseman(health,strength), "Chevalier Blanc");
 	}
-
+	public HorsemanFacade(int health, int strength, String name) {
+		super(new Horseman(health,strength), name);
+	}
 
 	@Override
 	public void accept(IVisitorArmy v) {

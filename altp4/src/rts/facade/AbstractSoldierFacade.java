@@ -15,13 +15,15 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	private ISoldierComponent soldier;
 	private List<ISoldierComponent> weapons;
+	private String name;
 	
 	private ArrayList<MyObserver> tabObservers;
 
-	public AbstractSoldierFacade(ISoldierComponent soldier) {
+	public AbstractSoldierFacade(ISoldierComponent soldier, String name) {
 		this.weapons = new ArrayList<>();
 		this.soldier = soldier;
 		this.tabObservers = new ArrayList<MyObserver>();
+		this.name = name;
 	}
 
 	protected void clearDeco()
@@ -80,6 +82,11 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 			MyObserver o = tabObservers.get(i);
 			o.update(this);
 		}
+	}
+	
+	@Override
+	public String getName() {
+		return this.name;
 	}
 
 }
