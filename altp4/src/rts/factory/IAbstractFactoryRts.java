@@ -5,22 +5,22 @@ import rts.weapon.IWeapon;
 
 public interface IAbstractFactoryRts {
 		
-	ISoldierFacade Infantryman();
-	ISoldierFacade Infantryman(int health, int strength);
-	ISoldierFacade Infantryman(int health, int strength,String name);
+	public ISoldierFacade Infantryman();
+	public ISoldierFacade Infantryman(int health, int strength);
+	public ISoldierFacade Infantryman(int health, int strength,String name);
 	
-	ISoldierFacade Knight();
-	ISoldierFacade Knight(int health, int strength); 
-	ISoldierFacade Knight(int health, int strength,String name);
+	public ISoldierFacade Knight();
+	public ISoldierFacade Knight(int health, int strength); 
+	public ISoldierFacade Knight(int health, int strength,String name);
 	
-	IWeapon WeaponParry();
-	IWeapon WeaponParry(int strength, int health);
+	public IWeapon WeaponParry();
+	public IWeapon WeaponParry(int strength, int health);
 	
-	IWeapon Weapon();
-	IWeapon Weapon(int strength, int health);
+	public IWeapon Weapon();
+	public IWeapon Weapon(int strength, int health);
 	
-	IWeapon Shield();
-	IWeapon Shield(int strength, int health);
+	public IWeapon Shield();
+	public IWeapon Shield(int strength, int health);
 	
 
 }

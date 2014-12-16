@@ -8,7 +8,7 @@ public interface IWeapon extends Cloneable {
 
 	public int getHealthPoints();
 
-	void damage(int dammage);
+	public void damage(int dammage);
 
 	public Object clone();
 

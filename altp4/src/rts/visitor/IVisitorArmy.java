@@ -8,10 +8,10 @@ import rts.facade.KnightriderFacade;
 
 public interface IVisitorArmy {
 	
-	void visit(Army army);
-	void visit(HorsemanFacade horsmam);
-	void visit(InfantrymanFacade infantryman);
-	void visit(FuriensFacade furiens);
-	void visit(KnightriderFacade knightrider);
+	public void visit(Army army);
+	public void visit(HorsemanFacade horsmam);
+	public void visit(InfantrymanFacade infantryman);
+	public void visit(FuriensFacade furiens);
+	public void visit(KnightriderFacade knightrider);
 	
 }

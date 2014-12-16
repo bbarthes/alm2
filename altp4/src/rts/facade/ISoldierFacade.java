@@ -8,7 +8,7 @@ import rts.weapon.IWeapon;
 
 public interface ISoldierFacade extends ISoldier , MyObservable {
 	
-	void addWeapon(IWeapon weapon) throws ErrorHandsFull;
+	public void addWeapon(IWeapon weapon) throws ErrorHandsFull;
 	public void accept(IVisitorArmy v);
 	public String getName();
 
