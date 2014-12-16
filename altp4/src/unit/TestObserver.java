@@ -27,8 +27,8 @@ public class TestObserver {
 
 	@Before
 	public void setUp() throws Exception {
-		this.soldierA = new InfantrymanFacade();
-		this.soldierB = new InfantrymanFacade();
+		this.soldierA = new InfantrymanFacade("Superman");
+		this.soldierB = new InfantrymanFacade("Batman");
 		this.soldierC = new InfantrymanFacade();
 		
 		this.armyA = new Army();
@@ -38,20 +38,23 @@ public class TestObserver {
 		report = new FightReportObserver();
 	}
 	
-//	@Test
-//	public void testDuel() {
-//		soldierB.addObserver(report);
-//		soldierC.addObserver(report);
-//		soldierB.addObserver(deathCount);
-//		soldierC.addObserver(deathCount);
-//		
-//		int damage  = soldierA.strike();
-//		soldierB.parry(damage);
-//		soldierC.parry(damage);
-//	}
+	@Test
+	public void testDuel() {
+		System.out.println("Début du duel:");
+		
+		soldierA.addObserver(report);
+		soldierB.addObserver(report);
+		
+		soldierA.addObserver(deathCount);
+		soldierB.addObserver(deathCount);
+		
+		int damage  = soldierA.strike();
+		soldierB.parry(damage);
+	}
 	
 	@Test
 	public void testWar() {
+		System.out.println("Début de la bataille:");
 		
 		ArrayList<Observer> lo = new ArrayList<>();
 		lo.add(deathCount);
