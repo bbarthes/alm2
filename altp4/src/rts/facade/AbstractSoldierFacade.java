@@ -6,7 +6,7 @@ import java.util.List;
 import rts.decorator.ISoldierComponent;
 import rts.decorator.SoldierWithHands;
 import rts.exception.ErrorHandsFull;
-import rts.observer.MyObserver;
+import rts.observer.Observer;
 import rts.weapon.IWeapon;
 
 
@@ -17,12 +17,12 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 	private List<ISoldierComponent> weapons;
 	private String name;
 	
-	private ArrayList<MyObserver> tabObservers;
+	private ArrayList<Observer> tabObservers;
 
 	public AbstractSoldierFacade(ISoldierComponent soldier, String name) {
 		this.weapons = new ArrayList<>();
 		this.soldier = soldier;
-		this.tabObservers = new ArrayList<MyObserver>();
+		this.tabObservers = new ArrayList<Observer>();
 		this.name = name;
 	}
 
@@ -69,17 +69,17 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 		this.weapons.add(this.soldier);
 	}
 	
-	public void addObserver(MyObserver o) {
+	public void addObserver(Observer o) {
 		tabObservers.add(o);
 	}
 	
-	public void suppObserver(MyObserver o){
+	public void suppObserver(Observer o){
 		tabObservers.remove(o);
 	}
 	
 	public void notifyObservers(){
 		for ( int i = 0; i<tabObservers.size(); i++){
-			MyObserver o = tabObservers.get(i);
+			Observer o = tabObservers.get(i);
 			o.update(this);
 		}
 	}

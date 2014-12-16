@@ -1,15 +1,19 @@
 package rts.observer;
 
 import rts.composite.Army;
+import rts.composite.IArmy;
+import rts.facade.ISoldierFacade;
 
-public class FightReportObserver implements MyObserver {
+public class FightReportObserver implements Observer {
 
 	@Override
-	public void update(MyObservable o) {
+	public void update(Observable o) {
 		if (o instanceof Army) {
-			System.out.println("L'armée a été détruite");
+			IArmy army = (IArmy) o;
+			System.out.println("L'armée " + army.getName()+ " a été détruite");
 		} else {
-			System.out.println("Le soldat est mort");
+			ISoldierFacade soldier = (ISoldierFacade) o;
+			System.out.println("Le soldat " + soldier.getName() +" est mort");
 		}
 		
 	}
