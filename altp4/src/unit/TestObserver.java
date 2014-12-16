@@ -3,7 +3,6 @@ package unit;
 import org.junit.Before;
 import org.junit.Test;
 
-import rts.facade.AbstractSoldierFacade;
 import rts.facade.ISoldierFacade;
 import rts.facade.InfantrymanFacade;
 import rts.observer.DeathSoldierObserver;
