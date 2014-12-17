@@ -26,6 +26,14 @@ public class VisitorArmyCount implements IVisitorArmy{
 		return infantryman;
 	}
 
+	public int getNumFuriens() {
+		return furiens;
+	}
+
+	public int getNumKnightrider() {
+		return knightrider;
+	}
+	
 	public int getNumSoldier() {
 		return this.horseman +this.infantryman + this.furiens + this.knightrider;
 	}
@@ -67,5 +75,7 @@ public class VisitorArmyCount implements IVisitorArmy{
 		++this.knightrider;
 		
 	}
+
+
 
 }

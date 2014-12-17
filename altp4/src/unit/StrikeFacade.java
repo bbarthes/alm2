@@ -24,7 +24,8 @@ public class StrikeFacade {
 		} catch (ErrorDoctorWho e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	}
+		}	
+	}
 	@Before
 	public void setUp() throws Exception {
 		this.soldier = fact.Infantryman();

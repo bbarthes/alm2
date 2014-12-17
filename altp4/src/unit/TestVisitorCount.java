@@ -7,14 +7,26 @@ import org.junit.Test;
 
 import rts.composite.Army;
 import rts.composite.IArmy;
+import rts.exception.ErrorDoctorWho;
 import rts.exception.ErrorHandsFull;
+import rts.facade.FactoryOfAbstractFactoryRts;
+import rts.factory.IAbstractFactoryRts;
 import rts.visitor.VisitorArmyCount;
 
 public class TestVisitorCount {
 
 	private VisitorArmyCount countArmy;
 	private IArmy army;
+	private IAbstractFactoryRts fact;
 
+	public TestVisitorCount() {
+		try {
+			this.fact = FactoryOfAbstractFactoryRts.getInstanceOfFuture();
+		} catch (ErrorDoctorWho e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,27 +36,27 @@ public class TestVisitorCount {
 	@Test
 	public void CountArmyOfSoldier() {
 		int numberSoldier = 20;
-		this.army.addSoldier(3, numberSoldier);
-		this.army.addSoldier(12, numberSoldier);
+		this.army.addSoldier(3, numberSoldier, fact);
+		this.army.addSoldier(12, numberSoldier, fact);
 		this.army.accept(countArmy);
 		assertEquals(this.countArmy.getNumSoldier(), numberSoldier*2);
-		assertEquals(this.countArmy.getNumHorseman(), numberSoldier);
-		assertEquals(this.countArmy.getNumInfantryman(), numberSoldier);
+		assertEquals(this.countArmy.getNumKnightrider(), numberSoldier);
+		assertEquals(this.countArmy.getNumFuriens(), numberSoldier);
 		assertEquals(this.countArmy.getNumArmy(), 1);
 	}
-	
+
 	@Test
 	public void CountMultipleArmy() {
 		int numberSoldier = 20;
-		this.army.addSoldier(3, numberSoldier);
-		this.army.addSoldier(12, numberSoldier);
+		this.army.addSoldier(3, numberSoldier, fact);
+		this.army.addSoldier(12, numberSoldier, fact);
 		Army army2 = new Army();
-		army2.addSoldier(4, numberSoldier*2);
+		army2.addSoldier(4, numberSoldier*2, fact);
 		this.army.addArmy(army2);
 		this.army.accept(countArmy);
 		assertEquals(this.countArmy.getNumSoldier(), numberSoldier*4);
-		assertEquals(this.countArmy.getNumHorseman(), numberSoldier*3);
-		assertEquals(this.countArmy.getNumInfantryman(), numberSoldier);
+		assertEquals(this.countArmy.getNumKnightrider(), numberSoldier*3);
+		assertEquals(this.countArmy.getNumFuriens(), numberSoldier);
 		assertEquals(this.countArmy.getNumArmy(), 2);
 	}
 	@Test
