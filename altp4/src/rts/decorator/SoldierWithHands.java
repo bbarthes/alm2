@@ -48,4 +48,15 @@ public class SoldierWithHands extends AbstractDecorator {
 		this.deco.parry(strengthEnnemy);
 
 	}
+	@Override
+	public ISoldierComponent clearDeco() {
+		
+		this.deco = this.deco.clearDeco();
+		
+		if(this.isBroken())
+			return this.deco;
+
+		return this;
+	}
+	
 }

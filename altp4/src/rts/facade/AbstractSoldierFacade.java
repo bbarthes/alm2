@@ -1,6 +1,7 @@
 package rts.facade;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import rts.decorator.ISoldierComponent;
@@ -13,7 +14,7 @@ import rts.observer.Observer;
 public abstract class AbstractSoldierFacade implements ISoldierFacade {
 
 	private ISoldierComponent soldier;
-	private List<ISoldierComponent> weapons;
+	private List<IWeapon> weapons;
 	private String name;
 	
 	private ArrayList<Observer> tabObservers;
@@ -28,13 +29,22 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 	protected void clearDeco()
 	{
 		this.soldier = this.soldier.clearDeco();
-		for(ISoldierComponent sc : this.weapons)
+		Iterator<IWeapon> it = this.weapons.iterator();
+		while(it.hasNext())
+		{
+			IWeapon wp = it.next();
+			if(wp.getHealthPoints() <=0)
+				it.remove();
+		}
+		/*
+		for(IWeapon sc : this.weapons)
 		{
 			if(sc.getHealthPoints()<=0)
 			{
 				this.weapons.remove(sc);
 			}
 		}
+		//*/
 	}
 
 	@Override
@@ -64,8 +74,9 @@ public abstract class AbstractSoldierFacade implements ISoldierFacade {
 		{
 			throw new ErrorHandsFull(this.weapons.size());
 		}
-		this.soldier = new SoldierWithHands(this.soldier, (IWeapon)weapon.clone());
-		this.weapons.add(this.soldier);
+		IWeapon wp = (IWeapon)weapon.clone();
+		this.soldier = new SoldierWithHands(this.soldier, wp);
+		this.weapons.add(wp);
 	}
 	
 	public void addObserver(Observer o) {

@@ -15,7 +15,7 @@ public class HoltzmanShield extends WeaponAbstract {
 
 	@Override
 	public int parry(int strengthEnnemy) {
-		if((strengthEnnemy) >20)
+		if(strengthEnnemy >= this.health/2)
 			return this.reduceDamage(super.strength, strengthEnnemy);
 	return strengthEnnemy;
 
